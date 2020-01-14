@@ -1,0 +1,6 @@
+{
+    "/dist/app.js": "/dist/app.js",
+    "/dist/background.js": "/dist/background.js",
+    "/dist/content_script.js": "/dist/content_script.js",
+    "/dist/page_script.js": "/dist/page_script.js"
+}

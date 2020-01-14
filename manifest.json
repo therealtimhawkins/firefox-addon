@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "greenpay-firefox",
+  "version": "1.0.0",
+  "browser_action": {
+    "default_icon": "assets/img/logo.png",
+    "default_title": "Opens MyExtension",
+    "default_popup": "app.html"
+  },
+  "permissions": [
+    "webRequest",
+    "tabs",
+    "webRequestBlocking",
+    "*://*/*",
+    "https://www.asos.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["dist/content_script.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["dist/background.js"]
+  }
+}

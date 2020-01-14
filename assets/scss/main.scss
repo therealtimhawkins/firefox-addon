@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap:400,700");
+// $family-sans-serif: "Source Sans Pro", sans-serif;
+
+$primary: #1e8736;
+$link: #75dddd;
+$info: #eb695c;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+$menu-item-hover-background-color: rgba($link, 0.5);
+
+@import "~bulma/bulma";
