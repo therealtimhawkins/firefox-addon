@@ -4,7 +4,7 @@
     <div class="card">
       <div class="card-content">
         <div class="section">
-          <div v-for="item in items">
+          <div v-for="item in items" v-bind:key="item.name">
             <ul>
               <li class="has-text-weight-bold">{{ item.name }}</li>
               <li>{{ item.description }}</li>
