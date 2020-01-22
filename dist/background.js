@@ -121,7 +121,7 @@ function _router() {
           case 0:
             console.log("message action: ", message.action);
             _context.t0 = message.action;
-            _context.next = _context.t0 === "scrapeItems" ? 4 : _context.t0 === "setItems" ? 9 : _context.t0 === "getItems" ? 11 : 12;
+            _context.next = _context.t0 === "scrapeItems" ? 4 : _context.t0 === "setItems" ? 9 : _context.t0 === "getItems" ? 12 : 13;
             break;
 
           case 4:
@@ -138,22 +138,23 @@ function _router() {
               allFrames: true
             });
             executingPage.then(onExecuted, onError);
-            return _context.abrupt("break", 13);
+            return _context.abrupt("break", 14);
 
           case 9:
+            console.log(message.items);
             items = message.items;
-            return _context.abrupt("break", 13);
+            return _context.abrupt("break", 14);
 
-          case 11:
+          case 12:
             browser.runtime.sendMessage({
               action: "returnItems",
               items: items
             });
 
-          case 12:
-            return _context.abrupt("break", 13);
-
           case 13:
+            return _context.abrupt("break", 14);
+
+          case 14:
           case "end":
             return _context.stop();
         }

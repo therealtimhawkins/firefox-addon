@@ -4,11 +4,20 @@
     <div class="card">
       <div class="card-content">
         <div class="section">
+          <div v-for="item in items">
+            <ul>
+              <li class="has-text-weight-bold">{{ item.name }}</li>
+              <li>{{ item.description }}</li>
+              <li>{{ item.price }}</li>
+              <li>{{ item.size }}</li>
+            </ul>
+            <br />
+          </div>
           <CardDetails v-if="card" />
         </div>
       </div>
       <footer class="card-footer">
-        <a class="card-footer-item">
+        <a @click="test()" class="card-footer-item">
           <div class="icon">
             <font-awesome-icon icon="home" />
           </div>

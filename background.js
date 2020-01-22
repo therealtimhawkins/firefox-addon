@@ -22,6 +22,7 @@ async function router(message) {
       executingPage.then(onExecuted, onError)
       break
     case "setItems":
+      console.log(message.items)
       items = message.items
       break
     case "getItems":

@@ -12627,6 +12627,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -16640,20 +16649,51 @@ var render = function() {
           _c(
             "div",
             { staticClass: "section" },
-            [_vm.card ? _c("CardDetails") : _vm._e()],
-            1
+            [
+              _vm._l(_vm.items, function(item) {
+                return _c("div", [
+                  _c("ul", [
+                    _c("li", { staticClass: "has-text-weight-bold" }, [
+                      _vm._v(_vm._s(item.name))
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v(_vm._s(item.description))]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v(_vm._s(item.price))]),
+                    _vm._v(" "),
+                    _c("li", [_vm._v(_vm._s(item.size))])
+                  ]),
+                  _vm._v(" "),
+                  _c("br")
+                ])
+              }),
+              _vm._v(" "),
+              _vm.card ? _c("CardDetails") : _vm._e()
+            ],
+            2
           )
         ]),
         _vm._v(" "),
         _c("footer", { staticClass: "card-footer" }, [
-          _c("a", { staticClass: "card-footer-item" }, [
-            _c(
-              "div",
-              { staticClass: "icon" },
-              [_c("font-awesome-icon", { attrs: { icon: "home" } })],
-              1
-            )
-          ]),
+          _c(
+            "a",
+            {
+              staticClass: "card-footer-item",
+              on: {
+                click: function($event) {
+                  return _vm.test()
+                }
+              }
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "icon" },
+                [_c("font-awesome-icon", { attrs: { icon: "home" } })],
+                1
+              )
+            ]
+          ),
           _vm._v(" "),
           _c(
             "a",
