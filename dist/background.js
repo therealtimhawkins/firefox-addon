@@ -113,16 +113,17 @@ function _router() {
   _router = _asyncToGenerator(
   /*#__PURE__*/
   _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(message) {
-    var onExecuted, onError, executingPage, productDetails, aboutMe;
+    var onExecuted, onError, executingPage, items;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
+            console.log("hit");
             _context.t0 = message.action;
-            _context.next = _context.t0 === "getHtml" ? 3 : _context.t0 === "getSource" ? 8 : 12;
+            _context.next = _context.t0 === "getHtml" ? 4 : _context.t0 === "getSource" ? 9 : 13;
             break;
 
-          case 3:
+          case 4:
             onExecuted = function onExecuted(result) {
               console.log("Got html!");
             };
@@ -136,18 +137,18 @@ function _router() {
               allFrames: true
             });
             executingPage.then(onExecuted, onError);
-            return _context.abrupt("break", 13);
+            return _context.abrupt("break", 14);
 
-          case 8:
-            productDetails = message.source;
-            aboutMe = productDetails.getElementsByClassName("about-me");
-            console.log("about me: ", JSON.stringify(aboutMe));
-            return _context.abrupt("break", 13);
-
-          case 12:
-            return _context.abrupt("break", 13);
+          case 9:
+            console.log("<<<<<<<<<<<<<<<<<<<<<<HTML>>>>>>>>>>>>>>>>>>>>>>");
+            items = message.source.items;
+            console.log("no of items: ", items.length);
+            return _context.abrupt("break", 14);
 
           case 13:
+            return _context.abrupt("break", 14);
+
+          case 14:
           case "end":
             return _context.stop();
         }

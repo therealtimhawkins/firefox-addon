@@ -1,6 +1,7 @@
 browser.runtime.onMessage.addListener(router)
 
 async function router(message) {
+  console.log("hit")
   switch (message.action) {
     case "getHtml":
       function onExecuted(result) {
@@ -19,9 +20,9 @@ async function router(message) {
       executingPage.then(onExecuted, onError)
       break
     case "getSource":
-      const productDetails = message.source
-      const aboutMe = productDetails.getElementsByClassName("about-me")
-      console.log("about me: ", JSON.stringify(aboutMe))
+      console.log("<<<<<<<<<<<<<<<<<<<<<<HTML>>>>>>>>>>>>>>>>>>>>>>")
+      const items = message.source.items
+      console.log("no of items: ", items.length)
       break
     default:
       break
