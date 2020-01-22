@@ -1,9 +1,11 @@
+let items
+
 browser.runtime.onMessage.addListener(router)
 
 async function router(message) {
-  console.log("hit")
+  console.log("message action: ", message.action)
   switch (message.action) {
-    case "getHtml":
+    case "scrapeItems":
       function onExecuted(result) {
         console.log(`Got html!`)
       }
@@ -19,10 +21,11 @@ async function router(message) {
 
       executingPage.then(onExecuted, onError)
       break
-    case "getSource":
-      const items = message.items
-      console.log("items: ", items)
+    case "setItems":
+      items = message.items
       break
+    case "getItems":
+      browser.runtime.sendMessage({ action: "returnItems", items })
     default:
       break
   }

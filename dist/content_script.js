@@ -113,7 +113,7 @@ var getHtml = function getHtml(url) {
 };
 
 browser.runtime.sendMessage({
-  action: "getHtml"
+  action: "scrapeItems"
 });
 
 /***/ }),

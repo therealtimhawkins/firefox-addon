@@ -8,7 +8,7 @@
         </div>
       </div>
       <footer class="card-footer">
-        <a @click="test()" class="card-footer-item">
+        <a class="card-footer-item">
           <div class="icon">
             <font-awesome-icon icon="home" />
           </div>
@@ -42,7 +42,8 @@ export default {
   components: { NavBar, CardDetails, Footprint, Payment },
   data: function() {
     return {
-      panel: "home"
+      panel: "home",
+      items: null
     };
   },
   computed: {
@@ -56,10 +57,14 @@ export default {
       return this.panel === "user";
     }
   },
-  methods: {
-    async test() {
-      browser.runtime.sendMessage({});
-    }
+  created() {
+    browser.runtime.onMessage.addListener(message => {
+      if (message.action === "returnItems") {
+        this.items = message.items;
+      }
+    });
+
+    browser.runtime.sendMessage({ action: "getItems" });
   }
 };
 </script>

@@ -134,7 +134,7 @@ function formatItems(items) {
 }
 
 browser.runtime.sendMessage({
-  action: "getSource",
+  action: "setItems",
   items: formatItems(document.getElementsByClassName("row-item"))
 });
 

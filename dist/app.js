@@ -12588,23 +12588,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _NavBar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NavBar */ "./assets/js/components/NavBar.vue");
-/* harmony import */ var _CardDetails__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CardDetails */ "./assets/js/components/CardDetails.vue");
-/* harmony import */ var _Footprint__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Footprint */ "./assets/js/components/Footprint.vue");
-/* harmony import */ var _Payment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Payment */ "./assets/js/components/Payment.vue");
-/* harmony import */ var _services_greenPay__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/greenPay */ "./assets/js/services/greenPay.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var lodash_get__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! lodash.get */ "./node_modules/lodash.get/index.js");
-/* harmony import */ var lodash_get__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(lodash_get__WEBPACK_IMPORTED_MODULE_7__);
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
+/* harmony import */ var _NavBar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NavBar */ "./assets/js/components/NavBar.vue");
+/* harmony import */ var _CardDetails__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardDetails */ "./assets/js/components/CardDetails.vue");
+/* harmony import */ var _Footprint__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Footprint */ "./assets/js/components/Footprint.vue");
+/* harmony import */ var _Payment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Payment */ "./assets/js/components/Payment.vue");
+/* harmony import */ var _services_greenPay__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/greenPay */ "./assets/js/services/greenPay.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var lodash_get__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash.get */ "./node_modules/lodash.get/index.js");
+/* harmony import */ var lodash_get__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(lodash_get__WEBPACK_IMPORTED_MODULE_6__);
 //
 //
 //
@@ -12645,14 +12637,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GreenPay",
   components: {
-    NavBar: _NavBar__WEBPACK_IMPORTED_MODULE_1__["default"],
-    CardDetails: _CardDetails__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Footprint: _Footprint__WEBPACK_IMPORTED_MODULE_3__["default"],
-    Payment: _Payment__WEBPACK_IMPORTED_MODULE_4__["default"]
+    NavBar: _NavBar__WEBPACK_IMPORTED_MODULE_0__["default"],
+    CardDetails: _CardDetails__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Footprint: _Footprint__WEBPACK_IMPORTED_MODULE_2__["default"],
+    Payment: _Payment__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
-      panel: "home"
+      panel: "home",
+      items: null
     };
   },
   computed: {
@@ -12666,31 +12659,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return this.panel === "user";
     }
   },
-  methods: {
-    test: function () {
-      var _test = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                browser.runtime.sendMessage({});
+  created: function created() {
+    var _this = this;
 
-              case 1:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }));
-
-      function test() {
-        return _test.apply(this, arguments);
+    browser.runtime.onMessage.addListener(function (message) {
+      if (message.action === "returnItems") {
+        _this.items = message.items;
       }
-
-      return test;
-    }()
+    });
+    browser.runtime.sendMessage({
+      action: "getItems"
+    });
   }
 });
 
@@ -16667,25 +16646,14 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("footer", { staticClass: "card-footer" }, [
-          _c(
-            "a",
-            {
-              staticClass: "card-footer-item",
-              on: {
-                click: function($event) {
-                  return _vm.test()
-                }
-              }
-            },
-            [
-              _c(
-                "div",
-                { staticClass: "icon" },
-                [_c("font-awesome-icon", { attrs: { icon: "home" } })],
-                1
-              )
-            ]
-          ),
+          _c("a", { staticClass: "card-footer-item" }, [
+            _c(
+              "div",
+              { staticClass: "icon" },
+              [_c("font-awesome-icon", { attrs: { icon: "home" } })],
+              1
+            )
+          ]),
           _vm._v(" "),
           _c(
             "a",

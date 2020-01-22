@@ -103,6 +103,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+var items;
 browser.runtime.onMessage.addListener(router);
 
 function router(_x) {
@@ -113,14 +114,14 @@ function _router() {
   _router = _asyncToGenerator(
   /*#__PURE__*/
   _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(message) {
-    var onExecuted, onError, executingPage, items;
+    var onExecuted, onError, executingPage;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            console.log("hit");
+            console.log("message action: ", message.action);
             _context.t0 = message.action;
-            _context.next = _context.t0 === "getHtml" ? 4 : _context.t0 === "getSource" ? 9 : 12;
+            _context.next = _context.t0 === "scrapeItems" ? 4 : _context.t0 === "setItems" ? 9 : _context.t0 === "getItems" ? 11 : 12;
             break;
 
           case 4:
@@ -141,8 +142,13 @@ function _router() {
 
           case 9:
             items = message.items;
-            console.log("items: ", items);
             return _context.abrupt("break", 13);
+
+          case 11:
+            browser.runtime.sendMessage({
+              action: "returnItems",
+              items: items
+            });
 
           case 12:
             return _context.abrupt("break", 13);

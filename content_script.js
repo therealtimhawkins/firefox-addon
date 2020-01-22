@@ -16,4 +16,4 @@ const getHtml = url => {
   })
 }
 
-browser.runtime.sendMessage({ action: "getHtml" })
+browser.runtime.sendMessage({ action: "scrapeItems" })
