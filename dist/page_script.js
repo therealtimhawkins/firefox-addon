@@ -118,7 +118,16 @@ function formatItems(items) {
   var formatedItems = [];
 
   for (var itemCount = 0; itemCount < items.length; itemCount++) {
-    console.log("item", DOMtoString(items[itemCount].getElementsByClassName("text")[0]));
+    var name = DOMtoString(items[itemCount].getElementsByClassName("heading--sub")[0]);
+    var description = DOMtoString(items[itemCount].getElementsByClassName("text")[0]);
+    var price = DOMtoString(items[itemCount].getElementsByClassName("heading--sub mb-0")[0]);
+    var size = DOMtoString(items[itemCount].getElementsByClassName("text mb-0")[0]);
+    formatedItems.push({
+      name: name,
+      description: description,
+      price: price,
+      size: size
+    });
   }
 
   return formatedItems;
@@ -126,9 +135,7 @@ function formatItems(items) {
 
 browser.runtime.sendMessage({
   action: "getSource",
-  source: {
-    items: formatItems(document.getElementsByClassName("text"))
-  }
+  items: formatItems(document.getElementsByClassName("row-item"))
 });
 
 /***/ }),

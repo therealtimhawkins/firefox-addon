@@ -18,17 +18,24 @@ function DOMtoString(document_root) {
 function formatItems(items) {
   const formatedItems = []
   for (let itemCount = 0; itemCount < items.length; itemCount++) {
-    console.log(
-      "item",
-      DOMtoString(items[itemCount].getElementsByClassName("text")[0])
+    const name = DOMtoString(
+      items[itemCount].getElementsByClassName("heading--sub")[0]
     )
+    const description = DOMtoString(
+      items[itemCount].getElementsByClassName("text")[0]
+    )
+    const price = DOMtoString(
+      items[itemCount].getElementsByClassName("heading--sub mb-0")[0]
+    )
+    const size = DOMtoString(
+      items[itemCount].getElementsByClassName("text mb-0")[0]
+    )
+    formatedItems.push({ name, description, price, size })
   }
   return formatedItems
 }
 
 browser.runtime.sendMessage({
   action: "getSource",
-  source: {
-    items: formatItems(document.getElementsByClassName("text"))
-  }
+  items: formatItems(document.getElementsByClassName("row-item"))
 })

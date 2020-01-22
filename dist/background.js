@@ -120,7 +120,7 @@ function _router() {
           case 0:
             console.log("hit");
             _context.t0 = message.action;
-            _context.next = _context.t0 === "getHtml" ? 4 : _context.t0 === "getSource" ? 9 : 13;
+            _context.next = _context.t0 === "getHtml" ? 4 : _context.t0 === "getSource" ? 9 : 12;
             break;
 
           case 4:
@@ -137,18 +137,17 @@ function _router() {
               allFrames: true
             });
             executingPage.then(onExecuted, onError);
-            return _context.abrupt("break", 14);
+            return _context.abrupt("break", 13);
 
           case 9:
-            console.log("<<<<<<<<<<<<<<<<<<<<<<HTML>>>>>>>>>>>>>>>>>>>>>>");
-            items = message.source.items;
-            console.log("no of items: ", items.length);
-            return _context.abrupt("break", 14);
+            items = message.items;
+            console.log("items: ", items);
+            return _context.abrupt("break", 13);
+
+          case 12:
+            return _context.abrupt("break", 13);
 
           case 13:
-            return _context.abrupt("break", 14);
-
-          case 14:
           case "end":
             return _context.stop();
         }

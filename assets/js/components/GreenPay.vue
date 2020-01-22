@@ -58,18 +58,6 @@ export default {
   },
   methods: {
     async test() {
-      const fetchedTabs = await browser.windows.getCurrent();
-
-      browser.tabs
-        .query({ currentWindow: true, active: true })
-        .then(async tabs => {
-          const url = tabs[0].url;
-          // console.log(
-          //   browser.windows.getCurrent().document.getElementsByTagName("*")
-          // );
-          console.log(browser.windows.getCurrent());
-          const html = await fetch(url);
-        });
       browser.runtime.sendMessage({});
     }
   }

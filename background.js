@@ -20,9 +20,8 @@ async function router(message) {
       executingPage.then(onExecuted, onError)
       break
     case "getSource":
-      console.log("<<<<<<<<<<<<<<<<<<<<<<HTML>>>>>>>>>>>>>>>>>>>>>>")
-      const items = message.source.items
-      console.log("no of items: ", items.length)
+      const items = message.items
+      console.log("items: ", items)
       break
     default:
       break

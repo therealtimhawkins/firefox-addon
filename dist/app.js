@@ -12670,62 +12670,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     test: function () {
       var _test = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var fetchedTabs;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context.prev = _context.next) {
               case 0:
-                _context2.next = 2;
-                return browser.windows.getCurrent();
-
-              case 2:
-                fetchedTabs = _context2.sent;
-                browser.tabs.query({
-                  currentWindow: true,
-                  active: true
-                }).then(
-                /*#__PURE__*/
-                function () {
-                  var _ref = _asyncToGenerator(
-                  /*#__PURE__*/
-                  _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(tabs) {
-                    var url, html;
-                    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-                      while (1) {
-                        switch (_context.prev = _context.next) {
-                          case 0:
-                            url = tabs[0].url; // console.log(
-                            //   browser.windows.getCurrent().document.getElementsByTagName("*")
-                            // );
-
-                            console.log(browser.windows.getCurrent());
-                            _context.next = 4;
-                            return fetch(url);
-
-                          case 4:
-                            html = _context.sent;
-
-                          case 5:
-                          case "end":
-                            return _context.stop();
-                        }
-                      }
-                    }, _callee);
-                  }));
-
-                  return function (_x) {
-                    return _ref.apply(this, arguments);
-                  };
-                }());
                 browser.runtime.sendMessage({});
 
-              case 5:
+              case 1:
               case "end":
-                return _context2.stop();
+                return _context.stop();
             }
           }
-        }, _callee2);
+        }, _callee);
       }));
 
       function test() {
