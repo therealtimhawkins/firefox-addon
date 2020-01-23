@@ -4,11 +4,15 @@ import VueSlider from "v-show-slide"
 require("../scss/main.scss")
 
 import { library } from "@fortawesome/fontawesome-svg-core"
-import { faUser, faHome, faCreditCard } from "@fortawesome/free-solid-svg-icons"
+import {
+  faUser,
+  faCreditCard,
+  faShoePrints
+} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
 
 library.add(faUser)
-library.add(faHome)
+library.add(faShoePrints)
 library.add(faCreditCard)
 
 Vue.component("font-awesome-icon", FontAwesomeIcon)

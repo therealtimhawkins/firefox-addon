@@ -4,22 +4,14 @@
     <div class="card">
       <div class="card-content">
         <div class="section">
-          <div v-for="item in items" v-bind:key="item.name">
-            <ul>
-              <li class="has-text-weight-bold">{{ item.name }}</li>
-              <li>{{ item.description }}</li>
-              <li>{{ item.price }}</li>
-              <li>{{ item.size }}</li>
-            </ul>
-            <br />
-          </div>
+          <Items :items="items" v-if="home" />
           <CardDetails v-if="card" />
         </div>
       </div>
       <footer class="card-footer">
-        <a @click="test()" class="card-footer-item">
+        <a @click="panel = 'home'" class="card-footer-item">
           <div class="icon">
-            <font-awesome-icon icon="home" />
+            <font-awesome-icon icon="shoe-prints" />
           </div>
         </a>
         <a @click="panel = 'card'" class="card-footer-item">
@@ -39,6 +31,7 @@
 <script type="application/javascript" src="https://js.stripe.com/v3/"></script>
 <script>
 import NavBar from "./NavBar";
+import Items from "./Items.vue";
 import CardDetails from "./CardDetails";
 import Footprint from "./Footprint";
 import Payment from "./Payment";
@@ -48,7 +41,7 @@ import get from "lodash.get";
 
 export default {
   name: "GreenPay",
-  components: { NavBar, CardDetails, Footprint, Payment },
+  components: { NavBar, Items, CardDetails, Footprint, Payment },
   data: function() {
     return {
       panel: "home",
