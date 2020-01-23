@@ -12615,6 +12615,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -16476,6 +16477,8 @@ var render = function() {
             "div",
             { staticClass: "section" },
             [
+              _vm.footprint ? _c("Footprint") : _vm._e(),
+              _vm._v(" "),
               _vm.bag ? _c("Items", { attrs: { items: _vm.items } }) : _vm._e(),
               _vm._v(" "),
               _vm.card ? _c("CardDetails") : _vm._e()

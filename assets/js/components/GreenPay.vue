@@ -4,6 +4,7 @@
     <div class="card">
       <div class="card-content">
         <div class="section">
+          <Footprint v-if="footprint" />
           <Items :items="items" v-if="bag" />
           <CardDetails v-if="card" />
         </div>
