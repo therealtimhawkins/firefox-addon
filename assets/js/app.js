@@ -8,7 +8,8 @@ import {
   faUser,
   faCreditCard,
   faShoePrints,
-  faTimesCircle
+  faTimesCircle,
+  faShoppingBag
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
 
@@ -16,6 +17,7 @@ library.add(faUser)
 library.add(faShoePrints)
 library.add(faCreditCard)
 library.add(faTimesCircle)
+library.add(faShoppingBag)
 
 Vue.component("font-awesome-icon", FontAwesomeIcon)
 Vue.use(VueSlider)

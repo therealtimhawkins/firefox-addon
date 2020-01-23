@@ -4,14 +4,19 @@
     <div class="card">
       <div class="card-content">
         <div class="section">
-          <Items :items="items" v-if="home" />
+          <Items :items="items" v-if="bag" />
           <CardDetails v-if="card" />
         </div>
       </div>
       <footer class="card-footer">
-        <a @click="panel = 'home'" class="card-footer-item">
+        <a @click="panel = 'footprint'" class="card-footer-item">
           <div class="icon">
             <font-awesome-icon icon="shoe-prints" />
+          </div>
+        </a>
+        <a @click="panel = 'bag'" class="card-footer-item">
+          <div class="icon">
+            <font-awesome-icon icon="shopping-bag" />
           </div>
         </a>
         <a @click="panel = 'card'" class="card-footer-item">
@@ -44,16 +49,19 @@ export default {
   components: { NavBar, Items, CardDetails, Footprint, Payment },
   data: function() {
     return {
-      panel: "home",
+      panel: "footprint",
       items: null
     };
   },
   computed: {
+    bag() {
+      return this.panel === "bag";
+    },
     card() {
       return this.panel === "card";
     },
-    home() {
-      return this.panel === "home";
+    footprint() {
+      return this.panel === "footprint";
     },
     user() {
       return this.panel === "user";

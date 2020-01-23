@@ -1,19 +1,20 @@
 <template>
   <div>
-    <span>
-      <a @click="toggleItems()" class="icon is-small is-pulled-right has-text-primary">
+    <span class="title is-5">Items</span>
+    <!-- <span>
+      <a @click="toggleItems()" class="icon is-pulled-right has-text-info">
         <font-awesome-icon icon="times-circle" />
       </a>
-    </span>
+    </span>-->
     <div v-show-slide="showItems">
       <div v-for="item in items" v-bind:key="item.name">
-        <ul>
-          <li class="has-text-weight-bold">{{ item.name }}</li>
-          <li>{{ item.description }}</li>
-          <li>{{ item.price }}</li>
-          <li>{{ item.size }}</li>
-        </ul>
         <br />
+        <ul>
+          <li class="has-text-weight-bold is-size-7">{{ item.name }}</li>
+          <li class="is-size-7">{{ item.description }}</li>
+          <li class="is-size-7">{{ item.price }}</li>
+          <li class="is-size-7">{{ item.size }}</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -21,7 +22,7 @@
 
 <script>
 export default {
-  name: "Payment",
+  name: "Items",
   props: {
     items: Array
   },
