@@ -114,6 +114,7 @@ __webpack_require__(/*! ../scss/main.scss */ "./assets/scss/main.scss");
 _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_3__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faUser"]);
 _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_3__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faShoePrints"]);
 _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_3__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faCreditCard"]);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_3__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faTimesCircle"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component("font-awesome-icon", _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_5__["FontAwesomeIcon"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_show_slide__WEBPACK_IMPORTED_MODULE_2__["default"]);
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
@@ -12771,10 +12772,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Payment",
   props: {
     items: Array
+  },
+  data: function data() {
+    return {
+      showItems: true
+    };
+  },
+  methods: {
+    toggleItems: function toggleItems() {
+      this.showItems = !this.showItems;
+    }
   }
 });
 
@@ -16844,27 +16862,55 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    _vm._l(_vm.items, function(item) {
-      return _c("div", { key: item.name }, [
-        _c("ul", [
-          _c("li", { staticClass: "has-text-weight-bold" }, [
-            _vm._v(_vm._s(item.name))
+  return _c("div", [
+    _c("span", [
+      _c(
+        "a",
+        {
+          staticClass: "icon is-small is-pulled-right has-text-primary",
+          on: {
+            click: function($event) {
+              return _vm.toggleItems()
+            }
+          }
+        },
+        [_c("font-awesome-icon", { attrs: { icon: "times-circle" } })],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show-slide",
+            rawName: "v-show-slide",
+            value: _vm.showItems,
+            expression: "showItems"
+          }
+        ]
+      },
+      _vm._l(_vm.items, function(item) {
+        return _c("div", { key: item.name }, [
+          _c("ul", [
+            _c("li", { staticClass: "has-text-weight-bold" }, [
+              _vm._v(_vm._s(item.name))
+            ]),
+            _vm._v(" "),
+            _c("li", [_vm._v(_vm._s(item.description))]),
+            _vm._v(" "),
+            _c("li", [_vm._v(_vm._s(item.price))]),
+            _vm._v(" "),
+            _c("li", [_vm._v(_vm._s(item.size))])
           ]),
           _vm._v(" "),
-          _c("li", [_vm._v(_vm._s(item.description))]),
-          _vm._v(" "),
-          _c("li", [_vm._v(_vm._s(item.price))]),
-          _vm._v(" "),
-          _c("li", [_vm._v(_vm._s(item.size))])
-        ]),
-        _vm._v(" "),
-        _c("br")
-      ])
-    }),
-    0
-  )
+          _c("br")
+        ])
+      }),
+      0
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
