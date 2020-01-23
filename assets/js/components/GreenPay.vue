@@ -72,10 +72,35 @@ export default {
     browser.runtime.onMessage.addListener(message => {
       if (message.action === "returnItems") {
         this.items = message.items;
+        this.getFootprint();
       }
     });
 
     browser.runtime.sendMessage({ action: "getItems" });
+  },
+  methods: {
+    async getFootprint() {
+      console.log("Getting footprint");
+      const result = await this.request("http://www.example.com");
+      console.log(result);
+    },
+    request(url) {
+      return new Promise((resolve, reject) => {
+        const xmlHttp = new XMLHttpRequest();
+
+        xmlHttp.onreadystatechange = function(event) {
+          if (this.readyState === XMLHttpRequest.DONE) {
+            if (this.status === 200) {
+              resolve(this.response);
+            } else {
+              reject("Request failed");
+            }
+          }
+        };
+        xmlHttp.open("GET", url, true);
+        xmlHttp.send(null);
+      });
+    }
   }
 };
 </script>
