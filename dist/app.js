@@ -804,6 +804,37 @@ function () {
 
 /***/ }),
 
+/***/ "./assets/js/services/request.js":
+/*!***************************************!*\
+  !*** ./assets/js/services/request.js ***!
+  \***************************************/
+/*! exports provided: request */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "request", function() { return request; });
+var request = function request(url) {
+  return new Promise(function (resolve, reject) {
+    var xmlHttp = new XMLHttpRequest();
+
+    xmlHttp.onreadystatechange = function (event) {
+      if (this.readyState === XMLHttpRequest.DONE) {
+        if (this.status === 200) {
+          resolve(this.response);
+        } else {
+          reject("Request failed");
+        }
+      }
+    };
+
+    xmlHttp.open("GET", url, true);
+    xmlHttp.send(null);
+  });
+};
+
+/***/ }),
+
 /***/ "./assets/scss/main.scss":
 /*!*******************************!*\
   !*** ./assets/scss/main.scss ***!
@@ -12577,8 +12608,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Footprint__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Footprint */ "./assets/js/components/Footprint.vue");
 /* harmony import */ var _Payment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Payment */ "./assets/js/components/Payment.vue");
 /* harmony import */ var _services_greenPay__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/greenPay */ "./assets/js/services/greenPay.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _services_request__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/request */ "./assets/js/services/request.js");
 /* harmony import */ var lodash_get__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lodash.get */ "./node_modules/lodash.get/index.js");
 /* harmony import */ var lodash_get__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(lodash_get__WEBPACK_IMPORTED_MODULE_8__);
 
@@ -12687,7 +12717,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 console.log("Getting footprint");
                 _context.next = 3;
-                return this.request("http://www.example.com");
+                return Object(_services_request__WEBPACK_IMPORTED_MODULE_7__["request"])("http://www.example.com");
 
               case 3:
                 result = _context.sent;
@@ -12698,7 +12728,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context.stop();
             }
           }
-        }, _callee, this);
+        }, _callee);
       }));
 
       function getFootprint() {
@@ -12706,25 +12736,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return getFootprint;
-    }(),
-    request: function request(url) {
-      return new Promise(function (resolve, reject) {
-        var xmlHttp = new XMLHttpRequest();
-
-        xmlHttp.onreadystatechange = function (event) {
-          if (this.readyState === XMLHttpRequest.DONE) {
-            if (this.status === 200) {
-              resolve(this.response);
-            } else {
-              reject("Request failed");
-            }
-          }
-        };
-
-        xmlHttp.open("GET", url, true);
-        xmlHttp.send(null);
-      });
-    }
+    }()
   }
 });
 

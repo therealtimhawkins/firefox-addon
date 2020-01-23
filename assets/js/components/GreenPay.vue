@@ -42,7 +42,7 @@ import CardDetails from "./CardDetails";
 import Footprint from "./Footprint";
 import Payment from "./Payment";
 import GreenPay from "../services/greenPay";
-import axios from "axios";
+import { request } from "../services/request";
 import get from "lodash.get";
 
 export default {
@@ -81,25 +81,8 @@ export default {
   methods: {
     async getFootprint() {
       console.log("Getting footprint");
-      const result = await this.request("http://www.example.com");
+      const result = await request("http://www.example.com");
       console.log(result);
-    },
-    request(url) {
-      return new Promise((resolve, reject) => {
-        const xmlHttp = new XMLHttpRequest();
-
-        xmlHttp.onreadystatechange = function(event) {
-          if (this.readyState === XMLHttpRequest.DONE) {
-            if (this.status === 200) {
-              resolve(this.response);
-            } else {
-              reject("Request failed");
-            }
-          }
-        };
-        xmlHttp.open("GET", url, true);
-        xmlHttp.send(null);
-      });
     }
   }
 };
