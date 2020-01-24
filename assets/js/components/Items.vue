@@ -1,11 +1,6 @@
 <template>
   <div>
     <span class="title is-5">Items</span>
-    <!-- <span>
-      <a @click="toggleItems()" class="icon is-pulled-right has-text-info">
-        <font-awesome-icon icon="times-circle" />
-      </a>
-    </span>-->
     <div v-show-slide="showItems">
       <div v-for="item in items" v-bind:key="item.name + item.description">
         <br />

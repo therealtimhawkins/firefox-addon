@@ -853,6 +853,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 var items;
+var name;
 
 function connected(page_script) {
   browser.tabs.query({
@@ -871,10 +872,11 @@ function connected(page_script) {
             case 0:
               url = urlParser(tabs[0].url);
               console.log("url: ", url);
-              _context.next = 4;
+              name = url;
+              _context.next = 5;
               return __webpack_require__("./urlConfigs sync recursive ^\\.\\/.*\\/config\\.json$")("./" + url + "/config.json");
 
-            case 4:
+            case 5:
               data = _context.sent;
               console.log("data: ", data);
 
@@ -884,7 +886,7 @@ function connected(page_script) {
                 });
               }
 
-            case 7:
+            case 8:
             case "end":
               return _context.stop();
           }
@@ -947,7 +949,8 @@ function _router() {
           case 10:
             browser.runtime.sendMessage({
               action: "returnItems",
-              items: items
+              items: items,
+              name: name
             });
 
           case 11:

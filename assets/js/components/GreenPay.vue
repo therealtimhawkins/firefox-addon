@@ -4,6 +4,7 @@
     <div class="card">
       <div class="card-content">
         <div class="section">
+          <div class="title is-4">{{name}}</div>
           <Footprint v-if="footprint" />
           <Items :items="items" v-if="bag" />
           <CardDetails v-if="card" />
@@ -51,6 +52,7 @@ export default {
   data: function() {
     return {
       panel: "footprint",
+      name: "",
       items: null
     };
   },
@@ -72,6 +74,7 @@ export default {
     browser.runtime.onMessage.addListener(message => {
       if (message.action === "returnItems") {
         this.items = message.items;
+        this.name = message.name;
         this.getFootprint();
       }
     });

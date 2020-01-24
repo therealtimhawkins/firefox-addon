@@ -1,9 +1,11 @@
 let items
+let name
 
 function connected(page_script) {
   browser.tabs.query({ currentWindow: true, active: true }).then(async tabs => {
     const url = urlParser(tabs[0].url)
     console.log("url: ", url)
+    name = url
     const data = await require("../urlConfigs/" + url + "/config.json")
     console.log("data: ", data)
     if (data) {
@@ -45,7 +47,7 @@ async function router(message) {
       items = message.items
       break
     case "getItems":
-      browser.runtime.sendMessage({ action: "returnItems", items })
+      browser.runtime.sendMessage({ action: "returnItems", items, name })
     default:
       break
   }

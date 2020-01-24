@@ -12654,6 +12654,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 
@@ -12674,6 +12675,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       panel: "footprint",
+      name: "",
       items: null
     };
   },
@@ -12697,6 +12699,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     browser.runtime.onMessage.addListener(function (message) {
       if (message.action === "returnItems") {
         _this.items = message.items;
+        _this.name = message.name;
 
         _this.getFootprint();
       }
@@ -12741,11 +12744,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
 //
 //
 //
@@ -16540,6 +16538,10 @@ var render = function() {
             "div",
             { staticClass: "section" },
             [
+              _c("div", { staticClass: "title is-4" }, [
+                _vm._v(_vm._s(_vm.name))
+              ]),
+              _vm._v(" "),
               _vm.footprint ? _c("Footprint") : _vm._e(),
               _vm._v(" "),
               _vm.bag ? _c("Items", { attrs: { items: _vm.items } }) : _vm._e(),

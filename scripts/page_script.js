@@ -16,7 +16,6 @@ function DOMtoString(document_root) {
 }
 
 function formatItems(items, data) {
-  console.log(DOMtoString(items[0]))
   const formattedItems = []
   for (let itemCount = 0; itemCount < items.length; itemCount++) {
     const name = DOMtoString(

@@ -115,7 +115,6 @@ function DOMtoString(document_root) {
 }
 
 function formatItems(items, data) {
-  console.log(DOMtoString(items[0]));
   var formattedItems = [];
 
   for (var itemCount = 0; itemCount < items.length; itemCount++) {
