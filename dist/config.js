@@ -81,79 +81,30 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./scripts/page_script.js":
-/*!********************************!*\
-  !*** ./scripts/page_script.js ***!
-  \********************************/
-/*! no static exports found */
+/***/ "./urlConfigs/selfridges/config.js":
+/*!*****************************************!*\
+  !*** ./urlConfigs/selfridges/config.js ***!
+  \*****************************************/
+/*! no exports provided */
 /***/ (function(module, exports) {
 
-function DOMtoString(document_root) {
-  var html = "",
-      node = document_root.firstChild;
-
-  while (node) {
-    switch (node.nodeType) {
-      case Node.ELEMENT_NODE:
-        html += node.outerHTML;
-        break;
-
-      case Node.TEXT_NODE:
-        html += node.nodeValue;
-        break;
-    }
-
-    node = node.nextSibling;
-  }
-
-  return html;
-}
-
-function formatItems(items) {
-  var formattedItems = [];
-
-  for (var itemCount = 0; itemCount < items.length; itemCount++) {
-    var name = DOMtoString(items[itemCount].getElementsByClassName("heading--sub")[0]);
-    var description = DOMtoString(items[itemCount].getElementsByClassName("text")[0]);
-    var price = DOMtoString(items[itemCount].getElementsByClassName("heading--sub mb-0")[0]);
-    var size = DOMtoString(items[itemCount].getElementsByClassName("text mb-0")[0]);
-    formattedItems.push({
-      name: name,
-      description: description,
-      price: price,
-      size: size
-    });
-  }
-
-  return formattedItems;
-}
-
-var myPort = browser.runtime.connect({
-  name: "port-from-cs"
-});
-myPort.onMessage.addListener(function (message) {
-  console.log("message: ", message.url);
-  browser.runtime.sendMessage({
-    action: "setItems",
-    items: formatItems(document.getElementsByClassName("row-item"))
-  });
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/Users/timothyhawkins/Desktop/development/greenpay/firefox-extension/urlConfigs/selfridges/config.js'");
 
 /***/ }),
 
-/***/ 3:
-/*!**************************************!*\
-  !*** multi ./scripts/page_script.js ***!
-  \**************************************/
+/***/ 4:
+/*!***********************************************!*\
+  !*** multi ./urlConfigs/selfridges/config.js ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/timothyhawkins/Desktop/development/greenpay/firefox-extension/scripts/page_script.js */"./scripts/page_script.js");
+module.exports = __webpack_require__(/*! /Users/timothyhawkins/Desktop/development/greenpay/firefox-extension/urlConfigs/selfridges/config.js */"./urlConfigs/selfridges/config.js");
 
 
 /***/ })

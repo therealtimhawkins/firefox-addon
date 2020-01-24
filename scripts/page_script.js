@@ -32,11 +32,15 @@ function formatItems(items) {
     )
     formattedItems.push({ name, description, price, size })
   }
-  console.log(formattedItems)
   return formattedItems
 }
 
-browser.runtime.sendMessage({
-  action: "setItems",
-  items: formatItems(document.getElementsByClassName("row-item"))
+const myPort = browser.runtime.connect({ name: "port-from-cs" })
+myPort.onMessage.addListener(function(message) {
+  console.log("message: ", message.url)
+
+  browser.runtime.sendMessage({
+    action: "setItems",
+    items: formatItems(document.getElementsByClassName("row-item"))
+  })
 })

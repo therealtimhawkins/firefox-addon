@@ -1,5 +1,13 @@
 let items
 
+function connected(page_script) {
+  browser.tabs.query({ currentWindow: true, active: true }).then(tabs => {
+    const url = tabs[0].url
+    page_script.postMessage({ url })
+  })
+}
+
+browser.runtime.onConnect.addListener(connected)
 browser.runtime.onMessage.addListener(router)
 
 async function router(message) {
