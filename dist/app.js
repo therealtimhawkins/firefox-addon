@@ -12710,20 +12710,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _getFootprint = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var result;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                console.log("Getting footprint");
-                _context.next = 3;
-                return Object(_services_request__WEBPACK_IMPORTED_MODULE_7__["request"])("http://www.example.com");
-
-              case 3:
-                result = _context.sent;
-                console.log(result);
-
-              case 5:
               case "end":
                 return _context.stop();
             }

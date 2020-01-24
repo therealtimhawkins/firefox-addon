@@ -80,9 +80,9 @@ export default {
   },
   methods: {
     async getFootprint() {
-      console.log("Getting footprint");
-      const result = await request("http://www.example.com");
-      console.log(result);
+      // console.log("Getting footprint");
+      // const result = await request("http://www.example.com");
+      // console.log(result);
     }
   }
 };

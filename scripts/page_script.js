@@ -15,20 +15,20 @@ function DOMtoString(document_root) {
   return html
 }
 
-function formatItems(items) {
+function formatItems(items, data) {
   const formattedItems = []
   for (let itemCount = 0; itemCount < items.length; itemCount++) {
     const name = DOMtoString(
-      items[itemCount].getElementsByClassName("heading--sub")[0]
+      items[itemCount].getElementsByClassName(data.name)[0]
     )
     const description = DOMtoString(
-      items[itemCount].getElementsByClassName("text")[0]
+      items[itemCount].getElementsByClassName(data.description)[0]
     )
     const price = DOMtoString(
-      items[itemCount].getElementsByClassName("heading--sub mb-0")[0]
+      items[itemCount].getElementsByClassName(data.price)[0]
     )
     const size = DOMtoString(
-      items[itemCount].getElementsByClassName("text mb-0")[0]
+      items[itemCount].getElementsByClassName(data.size)[0]
     )
     formattedItems.push({ name, description, price, size })
   }
@@ -37,10 +37,11 @@ function formatItems(items) {
 
 const myPort = browser.runtime.connect({ name: "port-from-cs" })
 myPort.onMessage.addListener(function(message) {
-  console.log("message: ", message.url)
-
   browser.runtime.sendMessage({
     action: "setItems",
-    items: formatItems(document.getElementsByClassName("row-item"))
+    items: formatItems(
+      document.getElementsByClassName(message.data.bag),
+      message.data
+    )
   })
 })

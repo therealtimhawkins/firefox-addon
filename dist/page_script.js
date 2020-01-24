@@ -114,14 +114,14 @@ function DOMtoString(document_root) {
   return html;
 }
 
-function formatItems(items) {
+function formatItems(items, data) {
   var formattedItems = [];
 
   for (var itemCount = 0; itemCount < items.length; itemCount++) {
-    var name = DOMtoString(items[itemCount].getElementsByClassName("heading--sub")[0]);
-    var description = DOMtoString(items[itemCount].getElementsByClassName("text")[0]);
-    var price = DOMtoString(items[itemCount].getElementsByClassName("heading--sub mb-0")[0]);
-    var size = DOMtoString(items[itemCount].getElementsByClassName("text mb-0")[0]);
+    var name = DOMtoString(items[itemCount].getElementsByClassName(data.name)[0]);
+    var description = DOMtoString(items[itemCount].getElementsByClassName(data.description)[0]);
+    var price = DOMtoString(items[itemCount].getElementsByClassName(data.price)[0]);
+    var size = DOMtoString(items[itemCount].getElementsByClassName(data.size)[0]);
     formattedItems.push({
       name: name,
       description: description,
@@ -137,10 +137,9 @@ var myPort = browser.runtime.connect({
   name: "port-from-cs"
 });
 myPort.onMessage.addListener(function (message) {
-  console.log("message: ", message.url);
   browser.runtime.sendMessage({
     action: "setItems",
-    items: formatItems(document.getElementsByClassName("row-item"))
+    items: formatItems(document.getElementsByClassName(message.data.bag), message.data)
   });
 });
 

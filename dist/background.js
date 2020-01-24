@@ -858,13 +858,39 @@ function connected(page_script) {
   browser.tabs.query({
     currentWindow: true,
     active: true
-  }).then(function (tabs) {
-    var url = tabs[0].url;
-    urlParser(url);
-    page_script.postMessage({
-      url: url
-    });
-  });
+  }).then(
+  /*#__PURE__*/
+  function () {
+    var _ref = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(tabs) {
+      var url, data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              url = urlParser(tabs[0].url);
+              _context.next = 3;
+              return __webpack_require__(/*! ../urlConfigs/selfridges/config.json */ "./urlConfigs/selfridges/config.json");
+
+            case 3:
+              data = _context.sent;
+              page_script.postMessage({
+                data: data
+              });
+
+            case 5:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }());
 }
 
 browser.runtime.onConnect.addListener(connected);
@@ -873,25 +899,25 @@ browser.runtime.onMessage.addListener(router);
 function urlParser(url) {
   var pathArray = url.split("/");
   var host = pathArray[2].replace("www.", "");
-  console.log(host);
+  return host;
 }
 
-function router(_x) {
+function router(_x2) {
   return _router.apply(this, arguments);
 }
 
 function _router() {
   _router = _asyncToGenerator(
   /*#__PURE__*/
-  _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(message) {
+  _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(message) {
     var onExecuted, onError, executingPage;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
       while (1) {
-        switch (_context.prev = _context.next) {
+        switch (_context2.prev = _context2.next) {
           case 0:
             console.log("message action: ", message.action);
-            _context.t0 = message.action;
-            _context.next = _context.t0 === "scrapeItems" ? 4 : _context.t0 === "setItems" ? 9 : _context.t0 === "getItems" ? 11 : 12;
+            _context2.t0 = message.action;
+            _context2.next = _context2.t0 === "scrapeItems" ? 4 : _context2.t0 === "setItems" ? 9 : _context2.t0 === "getItems" ? 11 : 12;
             break;
 
           case 4:
@@ -908,11 +934,11 @@ function _router() {
               allFrames: true
             });
             executingPage.then(onExecuted, onError);
-            return _context.abrupt("break", 13);
+            return _context2.abrupt("break", 13);
 
           case 9:
             items = message.items;
-            return _context.abrupt("break", 13);
+            return _context2.abrupt("break", 13);
 
           case 11:
             browser.runtime.sendMessage({
@@ -921,17 +947,28 @@ function _router() {
             });
 
           case 12:
-            return _context.abrupt("break", 13);
+            return _context2.abrupt("break", 13);
 
           case 13:
           case "end":
-            return _context.stop();
+            return _context2.stop();
         }
       }
-    }, _callee);
+    }, _callee2);
   }));
   return _router.apply(this, arguments);
 }
+
+/***/ }),
+
+/***/ "./urlConfigs/selfridges/config.json":
+/*!*******************************************!*\
+  !*** ./urlConfigs/selfridges/config.json ***!
+  \*******************************************/
+/*! exports provided: bag, name, description, price, size, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"bag\":\"row-item\",\"name\":\"heading--sub\",\"description\":\"text\",\"price\":\"heading--sub mb-0\",\"size\":\"text mb-0\"}");
 
 /***/ }),
 

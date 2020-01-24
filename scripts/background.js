@@ -1,10 +1,12 @@
 let items
 
 function connected(page_script) {
-  browser.tabs.query({ currentWindow: true, active: true }).then(tabs => {
-    const url = tabs[0].url
-    urlParser(url)
-    page_script.postMessage({ url })
+  browser.tabs.query({ currentWindow: true, active: true }).then(async tabs => {
+    const url = urlParser(tabs[0].url)
+    const data = await require("../urlConfigs/selfridges/config.json")
+    page_script.postMessage({
+      data
+    })
   })
 }
 
@@ -14,7 +16,7 @@ browser.runtime.onMessage.addListener(router)
 function urlParser(url) {
   const pathArray = url.split("/")
   const host = pathArray[2].replace("www.", "")
-  console.log(host)
+  return host
 }
 
 async function router(message) {
