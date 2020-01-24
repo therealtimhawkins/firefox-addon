@@ -115,6 +115,7 @@ function DOMtoString(document_root) {
 }
 
 function formatItems(items, data) {
+  console.log(DOMtoString(items[0]));
   var formattedItems = [];
 
   for (var itemCount = 0; itemCount < items.length; itemCount++) {
@@ -130,6 +131,7 @@ function formatItems(items, data) {
     });
   }
 
+  console.log(formattedItems);
   return formattedItems;
 }
 
@@ -137,6 +139,7 @@ var myPort = browser.runtime.connect({
   name: "port-from-cs"
 });
 myPort.onMessage.addListener(function (message) {
+  console.log("messageData: ", message.data);
   browser.runtime.sendMessage({
     action: "setItems",
     items: formatItems(document.getElementsByClassName(message.data.bag), message.data)

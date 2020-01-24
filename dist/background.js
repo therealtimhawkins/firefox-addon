@@ -870,16 +870,21 @@ function connected(page_script) {
           switch (_context.prev = _context.next) {
             case 0:
               url = urlParser(tabs[0].url);
-              _context.next = 3;
+              console.log("url: ", url);
+              _context.next = 4;
               return __webpack_require__("./urlConfigs sync recursive ^\\.\\/.*\\/config\\.json$")("./" + url + "/config.json");
 
-            case 3:
+            case 4:
               data = _context.sent;
-              page_script.postMessage({
-                data: data
-              });
+              console.log("data: ", data);
 
-            case 5:
+              if (data) {
+                page_script.postMessage({
+                  data: data
+                });
+              }
+
+            case 7:
             case "end":
               return _context.stop();
           }
@@ -915,12 +920,11 @@ function _router() {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            console.log("message action: ", message.action);
             _context2.t0 = message.action;
-            _context2.next = _context2.t0 === "scrapeItems" ? 4 : _context2.t0 === "setItems" ? 9 : _context2.t0 === "getItems" ? 11 : 12;
+            _context2.next = _context2.t0 === "scrapeItems" ? 3 : _context2.t0 === "setItems" ? 8 : _context2.t0 === "getItems" ? 10 : 11;
             break;
 
-          case 4:
+          case 3:
             onExecuted = function onExecuted(result) {
               console.log("Got html!");
             };
@@ -934,22 +938,22 @@ function _router() {
               allFrames: true
             });
             executingPage.then(onExecuted, onError);
-            return _context2.abrupt("break", 13);
+            return _context2.abrupt("break", 12);
 
-          case 9:
+          case 8:
             items = message.items;
-            return _context2.abrupt("break", 13);
+            return _context2.abrupt("break", 12);
 
-          case 11:
+          case 10:
             browser.runtime.sendMessage({
               action: "returnItems",
               items: items
             });
 
-          case 12:
-            return _context2.abrupt("break", 13);
+          case 11:
+            return _context2.abrupt("break", 12);
 
-          case 13:
+          case 12:
           case "end":
             return _context2.stop();
         }
@@ -970,6 +974,7 @@ function _router() {
 
 var map = {
 	"./asos/config.json": "./urlConfigs/asos/config.json",
+	"./cosstores/config.json": "./urlConfigs/cosstores/config.json",
 	"./selfridges/config.json": "./urlConfigs/selfridges/config.json"
 };
 
@@ -999,10 +1004,21 @@ webpackContext.id = "./urlConfigs sync recursive ^\\.\\/.*\\/config\\.json$";
 /*!*************************************!*\
   !*** ./urlConfigs/asos/config.json ***!
   \*************************************/
-/*! exports provided: default */
+/*! exports provided: bag, name, description, price, size, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{}");
+module.exports = JSON.parse("{\"bag\":\"bag-item-holder\",\"name\":\"\",\"description\":\"\",\"price\":\"\",\"size\":\"\"}");
+
+/***/ }),
+
+/***/ "./urlConfigs/cosstores/config.json":
+/*!******************************************!*\
+  !*** ./urlConfigs/cosstores/config.json ***!
+  \******************************************/
+/*! exports provided: bag, name, description, price, size, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"bag\":\"o-cart-item\",\"name\":\"product-name ng-binding\",\"description\":\"color-section\",\"price\":\"price-section\",\"size\":\"size-section\"}");
 
 /***/ }),
 

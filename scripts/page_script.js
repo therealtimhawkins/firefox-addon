@@ -16,6 +16,7 @@ function DOMtoString(document_root) {
 }
 
 function formatItems(items, data) {
+  console.log(DOMtoString(items[0]))
   const formattedItems = []
   for (let itemCount = 0; itemCount < items.length; itemCount++) {
     const name = DOMtoString(
@@ -32,11 +33,13 @@ function formatItems(items, data) {
     )
     formattedItems.push({ name, description, price, size })
   }
+  console.log(formattedItems)
   return formattedItems
 }
 
 const myPort = browser.runtime.connect({ name: "port-from-cs" })
 myPort.onMessage.addListener(function(message) {
+  console.log("messageData: ", message.data)
   browser.runtime.sendMessage({
     action: "setItems",
     items: formatItems(

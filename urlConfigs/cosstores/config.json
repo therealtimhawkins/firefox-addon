@@ -1,0 +1,7 @@
+{
+  "bag": "o-cart-item",
+  "name": "product-name ng-binding",
+  "description": "color-section",
+  "price": "price-section",
+  "size": "size-section"
+}

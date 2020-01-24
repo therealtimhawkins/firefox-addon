@@ -3,10 +3,14 @@ let items
 function connected(page_script) {
   browser.tabs.query({ currentWindow: true, active: true }).then(async tabs => {
     const url = urlParser(tabs[0].url)
+    console.log("url: ", url)
     const data = await require("../urlConfigs/" + url + "/config.json")
-    page_script.postMessage({
-      data
-    })
+    console.log("data: ", data)
+    if (data) {
+      page_script.postMessage({
+        data
+      })
+    }
   })
 }
 
@@ -20,7 +24,6 @@ function urlParser(url) {
 }
 
 async function router(message) {
-  console.log("message action: ", message.action)
   switch (message.action) {
     case "scrapeItems":
       function onExecuted(result) {
