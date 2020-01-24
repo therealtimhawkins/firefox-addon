@@ -871,7 +871,7 @@ function connected(page_script) {
             case 0:
               url = urlParser(tabs[0].url);
               _context.next = 3;
-              return __webpack_require__(/*! ../urlConfigs/selfridges/config.json */ "./urlConfigs/selfridges/config.json");
+              return __webpack_require__("./urlConfigs sync recursive ^\\.\\/.*\\/config\\.json$")("./" + url + "/config.json");
 
             case 3:
               data = _context.sent;
@@ -898,8 +898,8 @@ browser.runtime.onMessage.addListener(router);
 
 function urlParser(url) {
   var pathArray = url.split("/");
-  var host = pathArray[2].replace("www.", "");
-  return host;
+  var host = pathArray[2].split(".");
+  return host[1];
 }
 
 function router(_x2) {
@@ -958,6 +958,51 @@ function _router() {
   }));
   return _router.apply(this, arguments);
 }
+
+/***/ }),
+
+/***/ "./urlConfigs sync recursive ^\\.\\/.*\\/config\\.json$":
+/*!************************************************!*\
+  !*** ./urlConfigs sync ^\.\/.*\/config\.json$ ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./asos/config.json": "./urlConfigs/asos/config.json",
+	"./selfridges/config.json": "./urlConfigs/selfridges/config.json"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./urlConfigs sync recursive ^\\.\\/.*\\/config\\.json$";
+
+/***/ }),
+
+/***/ "./urlConfigs/asos/config.json":
+/*!*************************************!*\
+  !*** ./urlConfigs/asos/config.json ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{}");
 
 /***/ }),
 
