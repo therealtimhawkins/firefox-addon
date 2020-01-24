@@ -16684,7 +16684,7 @@ var render = function() {
         ]
       },
       _vm._l(_vm.items, function(item) {
-        return _c("div", { key: item.name }, [
+        return _c("div", { key: item.name + item.description }, [
           _c("br"),
           _vm._v(" "),
           _c("ul", [

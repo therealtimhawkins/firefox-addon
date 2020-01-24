@@ -86,10 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./page_script.js":
-/*!************************!*\
-  !*** ./page_script.js ***!
-  \************************/
+/***/ "./scripts/page_script.js":
+/*!********************************!*\
+  !*** ./scripts/page_script.js ***!
+  \********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -115,14 +115,14 @@ function DOMtoString(document_root) {
 }
 
 function formatItems(items) {
-  var formatedItems = [];
+  var formattedItems = [];
 
   for (var itemCount = 0; itemCount < items.length; itemCount++) {
     var name = DOMtoString(items[itemCount].getElementsByClassName("heading--sub")[0]);
     var description = DOMtoString(items[itemCount].getElementsByClassName("text")[0]);
     var price = DOMtoString(items[itemCount].getElementsByClassName("heading--sub mb-0")[0]);
     var size = DOMtoString(items[itemCount].getElementsByClassName("text mb-0")[0]);
-    formatedItems.push({
+    formattedItems.push({
       name: name,
       description: description,
       price: price,
@@ -130,7 +130,8 @@ function formatItems(items) {
     });
   }
 
-  return formatedItems;
+  console.log(formattedItems);
+  return formattedItems;
 }
 
 browser.runtime.sendMessage({
@@ -141,13 +142,13 @@ browser.runtime.sendMessage({
 /***/ }),
 
 /***/ 3:
-/*!******************************!*\
-  !*** multi ./page_script.js ***!
-  \******************************/
+/*!**************************************!*\
+  !*** multi ./scripts/page_script.js ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/timothyhawkins/Desktop/development/greenpay/firefox-extension/page_script.js */"./page_script.js");
+module.exports = __webpack_require__(/*! /Users/timothyhawkins/Desktop/development/greenpay/firefox-extension/scripts/page_script.js */"./scripts/page_script.js");
 
 
 /***/ })

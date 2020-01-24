@@ -16,7 +16,7 @@ function DOMtoString(document_root) {
 }
 
 function formatItems(items) {
-  const formatedItems = []
+  const formattedItems = []
   for (let itemCount = 0; itemCount < items.length; itemCount++) {
     const name = DOMtoString(
       items[itemCount].getElementsByClassName("heading--sub")[0]
@@ -30,9 +30,10 @@ function formatItems(items) {
     const size = DOMtoString(
       items[itemCount].getElementsByClassName("text mb-0")[0]
     )
-    formatedItems.push({ name, description, price, size })
+    formattedItems.push({ name, description, price, size })
   }
-  return formatedItems
+  console.log(formattedItems)
+  return formattedItems
 }
 
 browser.runtime.sendMessage({

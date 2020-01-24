@@ -12,9 +12,9 @@ let mix = require("laravel-mix")
  */
 
 mix.js("assets/js/app.js", "dist/")
-mix.js("content_script.js", "dist/")
-mix.js("background.js", "dist/")
-mix.js("page_script.js", "dist/")
+mix.js("scripts/content_script.js", "dist/")
+mix.js("scripts/background.js", "dist/")
+mix.js("scripts/page_script.js", "dist/")
 
 // Full API
 // mix.js(src, output);

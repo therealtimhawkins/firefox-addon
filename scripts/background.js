@@ -15,14 +15,13 @@ async function router(message) {
       }
 
       const executingPage = browser.tabs.executeScript({
-        file: "/page_script.js",
+        file: "/scripts/page_script.js",
         allFrames: true
       })
 
       executingPage.then(onExecuted, onError)
       break
     case "setItems":
-      console.log(message.items)
       items = message.items
       break
     case "getItems":

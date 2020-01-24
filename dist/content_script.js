@@ -86,10 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./content_script.js":
-/*!***************************!*\
-  !*** ./content_script.js ***!
-  \***************************/
+/***/ "./scripts/content_script.js":
+/*!***********************************!*\
+  !*** ./scripts/content_script.js ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -119,13 +119,13 @@ browser.runtime.sendMessage({
 /***/ }),
 
 /***/ 1:
-/*!*********************************!*\
-  !*** multi ./content_script.js ***!
-  \*********************************/
+/*!*****************************************!*\
+  !*** multi ./scripts/content_script.js ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/timothyhawkins/Desktop/development/greenpay/firefox-extension/content_script.js */"./content_script.js");
+module.exports = __webpack_require__(/*! /Users/timothyhawkins/Desktop/development/greenpay/firefox-extension/scripts/content_script.js */"./scripts/content_script.js");
 
 
 /***/ })
