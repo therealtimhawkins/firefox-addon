@@ -7,7 +7,7 @@
           <div class="columns is-mobile">
             <div class="column"></div>
             <div class="column is-narrow">
-              <div class="title is-5 is-uppercase">{{name}}</div>
+              <div class="title is-5 is-uppercase">{{ name }}</div>
             </div>
           </div>
           <Footprint v-if="footprint" />
@@ -42,14 +42,14 @@
 </template>
 <script type="application/javascript" src="https://js.stripe.com/v3/"></script>
 <script>
-import NavBar from "./NavBar";
-import Items from "./Items.vue";
-import CardDetails from "./CardDetails";
-import Footprint from "./Footprint";
-import Payment from "./Payment";
-import GreenPay from "../services/greenPay";
-import { request } from "../services/request";
-import get from "lodash.get";
+import NavBar from "./NavBar"
+import Items from "./Items.vue"
+import CardDetails from "./CardDetails"
+import Footprint from "./Footprint"
+import Payment from "./Payment"
+import GreenPay from "../services/greenPay"
+import { request } from "../services/request"
+import get from "lodash.get"
 
 export default {
   name: "GreenPay",
@@ -59,32 +59,32 @@ export default {
       panel: "bag",
       name: "",
       items: null
-    };
+    }
   },
   computed: {
     bag() {
-      return this.panel === "bag";
+      return this.panel === "bag"
     },
     card() {
-      return this.panel === "card";
+      return this.panel === "card"
     },
     footprint() {
-      return this.panel === "footprint";
+      return this.panel === "footprint"
     },
     user() {
-      return this.panel === "user";
+      return this.panel === "user"
     }
   },
   created() {
     browser.runtime.onMessage.addListener(message => {
       if (message.action === "returnItems") {
-        this.items = message.items;
-        this.name = message.name;
-        this.getFootprint();
+        this.items = message.items
+        this.name = message.name
+        this.getFootprint()
       }
-    });
+    })
 
-    browser.runtime.sendMessage({ action: "getItems" });
+    browser.runtime.sendMessage({ action: "getItems" })
   },
   methods: {
     async getFootprint() {
@@ -93,7 +93,7 @@ export default {
       // console.log(result);
     }
   }
-};
+}
 </script>
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display:900:italic&display=swap");

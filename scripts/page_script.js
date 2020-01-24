@@ -15,21 +15,21 @@ function DOMtoString(document_root) {
   return html
 }
 
+function getItemField(item, field) {
+  const itemField = item.getElementsByClassName(field)[0]
+  if (itemField) {
+    return DOMtoString(itemField)
+  }
+  return ""
+}
+
 function formatItems(items, data) {
   const formattedItems = []
   for (let itemCount = 0; itemCount < items.length; itemCount++) {
-    const name = DOMtoString(
-      items[itemCount].getElementsByClassName(data.name)[0]
-    )
-    const description = DOMtoString(
-      items[itemCount].getElementsByClassName(data.description)[0]
-    )
-    const price = DOMtoString(
-      items[itemCount].getElementsByClassName(data.price)[0]
-    )
-    const size = DOMtoString(
-      items[itemCount].getElementsByClassName(data.size)[0]
-    )
+    const name = getItemField(items[itemCount], data.name)
+    const description = getItemField(items[itemCount], data.description)
+    const price = getItemField(items[itemCount], data.price)
+    const size = getItemField(items[itemCount], data.size)
     formattedItems.push({ name, description, price, size })
   }
   console.log(formattedItems)
@@ -39,11 +39,14 @@ function formatItems(items, data) {
 const myPort = browser.runtime.connect({ name: "port-from-cs" })
 myPort.onMessage.addListener(function(message) {
   console.log("messageData: ", message.data)
-  browser.runtime.sendMessage({
-    action: "setItems",
-    items: formatItems(
-      document.getElementsByClassName(message.data.bag),
-      message.data
-    )
-  })
+  setTimeout(() => {
+    console.log("end timer")
+    browser.runtime.sendMessage({
+      action: "setItems",
+      items: formatItems(
+        document.getElementsByClassName(message.data.bag),
+        message.data
+      )
+    })
+  }, 2000)
 })

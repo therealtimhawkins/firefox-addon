@@ -114,14 +114,24 @@ function DOMtoString(document_root) {
   return html;
 }
 
+function getItemField(item, field) {
+  var itemField = item.getElementsByClassName(field)[0];
+
+  if (itemField) {
+    return DOMtoString(itemField);
+  }
+
+  return "";
+}
+
 function formatItems(items, data) {
   var formattedItems = [];
 
   for (var itemCount = 0; itemCount < items.length; itemCount++) {
-    var name = DOMtoString(items[itemCount].getElementsByClassName(data.name)[0]);
-    var description = DOMtoString(items[itemCount].getElementsByClassName(data.description)[0]);
-    var price = DOMtoString(items[itemCount].getElementsByClassName(data.price)[0]);
-    var size = DOMtoString(items[itemCount].getElementsByClassName(data.size)[0]);
+    var name = getItemField(items[itemCount], data.name);
+    var description = getItemField(items[itemCount], data.description);
+    var price = getItemField(items[itemCount], data.price);
+    var size = getItemField(items[itemCount], data.size);
     formattedItems.push({
       name: name,
       description: description,
@@ -139,10 +149,13 @@ var myPort = browser.runtime.connect({
 });
 myPort.onMessage.addListener(function (message) {
   console.log("messageData: ", message.data);
-  browser.runtime.sendMessage({
-    action: "setItems",
-    items: formatItems(document.getElementsByClassName(message.data.bag), message.data)
-  });
+  setTimeout(function () {
+    console.log("end timer");
+    browser.runtime.sendMessage({
+      action: "setItems",
+      items: formatItems(document.getElementsByClassName(message.data.bag), message.data)
+    });
+  }, 2000);
 });
 
 /***/ }),

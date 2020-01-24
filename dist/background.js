@@ -978,7 +978,8 @@ function _router() {
 var map = {
 	"./asos/config.json": "./urlConfigs/asos/config.json",
 	"./cosstores/config.json": "./urlConfigs/cosstores/config.json",
-	"./selfridges/config.json": "./urlConfigs/selfridges/config.json"
+	"./selfridges/config.json": "./urlConfigs/selfridges/config.json",
+	"./zara/config.json": "./urlConfigs/zara/config.json"
 };
 
 
@@ -1033,6 +1034,17 @@ module.exports = JSON.parse("{\"bag\":\"o-cart-item\",\"name\":\"product-name ng
 /***/ (function(module) {
 
 module.exports = JSON.parse("{\"bag\":\"row-item\",\"name\":\"heading--sub\",\"description\":\"text\",\"price\":\"heading--sub mb-0\",\"size\":\"text mb-0\"}");
+
+/***/ }),
+
+/***/ "./urlConfigs/zara/config.json":
+/*!*************************************!*\
+  !*** ./urlConfigs/zara/config.json ***!
+  \*************************************/
+/*! exports provided: bag, name, description, price, size, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"bag\":\"shop-cart-item shop-cart-item--is-available shop-cart-grid-items__item\",\"name\":\"heading--sub\",\"description\":\"text\",\"price\":\"heading--sub mb-0\",\"size\":\"text mb-0\"}");
 
 /***/ }),
 

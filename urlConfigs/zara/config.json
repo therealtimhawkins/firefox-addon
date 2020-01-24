@@ -1,0 +1,7 @@
+{
+  "bag": "shop-cart-item shop-cart-item--is-available shop-cart-grid-items__item",
+  "name": "heading--sub",
+  "description": "text",
+  "price": "heading--sub mb-0",
+  "size": "text mb-0"
+}
