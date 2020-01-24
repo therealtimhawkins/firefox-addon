@@ -1021,7 +1021,7 @@ module.exports = JSON.parse("{\"bag\":\"bag-item-holder\",\"name\":\"\",\"descri
 /*! exports provided: bag, name, description, price, size, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"bag\":\"o-cart-item\",\"name\":\"product-name ng-binding\",\"description\":\"color-section\",\"price\":\"price-section\",\"size\":\"size-section\"}");
+module.exports = JSON.parse("{\"bag\":\"o-cart-item\",\"name\":\"product-name ng-binding\",\"description\":\"color ng-binding\",\"price\":\"price ng-binding\",\"size\":\"size ng-binding\"}");
 
 /***/ }),
 

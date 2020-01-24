@@ -4,7 +4,12 @@
     <div class="card">
       <div class="card-content">
         <div class="section">
-          <div class="title is-4">{{name}}</div>
+          <div class="columns is-mobile">
+            <div class="column"></div>
+            <div class="column is-narrow">
+              <div class="title is-5 is-uppercase">{{name}}</div>
+            </div>
+          </div>
           <Footprint v-if="footprint" />
           <Items :items="items" v-if="bag" />
           <CardDetails v-if="card" />
@@ -51,7 +56,7 @@ export default {
   components: { NavBar, Items, CardDetails, Footprint, Payment },
   data: function() {
     return {
-      panel: "footprint",
+      panel: "bag",
       name: "",
       items: null
     };

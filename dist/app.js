@@ -12655,6 +12655,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -12674,7 +12679,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
-      panel: "footprint",
+      panel: "bag",
       name: "",
       items: null
     };
@@ -16538,8 +16543,14 @@ var render = function() {
             "div",
             { staticClass: "section" },
             [
-              _c("div", { staticClass: "title is-4" }, [
-                _vm._v(_vm._s(_vm.name))
+              _c("div", { staticClass: "columns is-mobile" }, [
+                _c("div", { staticClass: "column" }),
+                _vm._v(" "),
+                _c("div", { staticClass: "column is-narrow" }, [
+                  _c("div", { staticClass: "title is-5 is-uppercase" }, [
+                    _vm._v(_vm._s(_vm.name))
+                  ])
+                ])
               ]),
               _vm._v(" "),
               _vm.footprint ? _c("Footprint") : _vm._e(),
