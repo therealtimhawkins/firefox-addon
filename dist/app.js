@@ -12582,6 +12582,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CarbonChart",
@@ -12589,18 +12591,21 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var options = {
       series: [{
-        name: "Series 1",
-        data: [80, 50, 30, 40, 100, 20]
+        name: "",
+        data: [80, 50, 30, 40, 100]
       }, {
-        name: "Series 2",
-        data: [20, 30, 40, 80, 20, 80]
+        name: "",
+        data: [20, 30, 40, 80, 20]
       }, {
-        name: "Series 3",
-        data: [44, 76, 78, 13, 43, 10]
+        name: "",
+        data: [44, 76, 78, 13, 43]
       }],
       chart: {
         height: 350,
         type: "radar",
+        toolbar: {
+          show: false
+        },
         dropShadow: {
           enabled: true,
           blur: 1,
@@ -12608,20 +12613,25 @@ __webpack_require__.r(__webpack_exports__);
           top: 1
         }
       },
-      title: {
-        text: "Radar Chart - Multi Series"
+      legend: {
+        show: true
       },
       stroke: {
-        width: 0
+        show: true,
+        width: 2,
+        colors: [],
+        dashArray: 0
       },
       fill: {
-        opacity: 0.4
+        opacity: 0.3
       },
       markers: {
         size: 0
       },
       xaxis: {
-        categories: ["2011", "2012", "2013", "2014", "2015", "2016"]
+        labels: {
+          show: false
+        }
       }
     };
     var chart = new apexcharts__WEBPACK_IMPORTED_MODULE_0__["default"](document.querySelector("#chart"), options);
@@ -12737,6 +12747,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CarbonChart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CarbonChart */ "./assets/js/components/CarbonChart.vue");
+//
+//
 //
 //
 //
@@ -16700,6 +16712,10 @@ var render = function() {
     [
       _c("span", { staticClass: "title is-5" }, [_vm._v("Footprint")]),
       _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
       _c("CarbonChart")
     ],
     1
@@ -16739,15 +16755,17 @@ var render = function() {
             "div",
             { staticClass: "section" },
             [
-              _c("div", { staticClass: "columns is-mobile" }, [
-                _c("div", { staticClass: "column" }),
-                _vm._v(" "),
-                _c("div", { staticClass: "column is-narrow" }, [
-                  _c("div", { staticClass: "title is-5 is-uppercase" }, [
-                    _vm._v(_vm._s(_vm.name))
+              _vm.items
+                ? _c("div", { staticClass: "columns is-mobile" }, [
+                    _c("div", { staticClass: "column" }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "column is-narrow" }, [
+                      _c("div", { staticClass: "title is-5 is-uppercase" }, [
+                        _vm._v(_vm._s(_vm.name))
+                      ])
+                    ])
                   ])
-                ])
-              ]),
+                : _vm._e(),
               _vm._v(" "),
               _vm.footprint ? _c("Footprint") : _vm._e(),
               _vm._v(" "),
