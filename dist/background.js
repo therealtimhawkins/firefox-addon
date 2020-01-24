@@ -860,6 +860,7 @@ function connected(page_script) {
     active: true
   }).then(function (tabs) {
     var url = tabs[0].url;
+    urlParser(url);
     page_script.postMessage({
       url: url
     });
@@ -868,6 +869,12 @@ function connected(page_script) {
 
 browser.runtime.onConnect.addListener(connected);
 browser.runtime.onMessage.addListener(router);
+
+function urlParser(url) {
+  var pathArray = url.split("/");
+  var host = pathArray[2].replace("www.", "");
+  console.log(host);
+}
 
 function router(_x) {
   return _router.apply(this, arguments);
