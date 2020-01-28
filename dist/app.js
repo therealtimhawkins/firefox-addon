@@ -10022,6 +10022,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "FootprintNotification",
   components: {}
@@ -10060,7 +10072,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Playfair+Display:900:italic&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n#logo[data-v-1704dd8e] {\n  font-family: \"Playfair Display\", serif, italic;\n  font-weight: 900;\n  padding: 8px 0 0 8px;\n}\n", ""]);
+exports.push([module.i, "\n#popup[data-v-1704dd8e] {\n  width: 200px;\n  padding: 8px 8px 8px 8px;\n}\n#logo[data-v-1704dd8e] {\n  font-family: \"Playfair Display\", serif, italic;\n  font-weight: 900;\n}\n", ""]);
 
 // exports
 
@@ -11204,24 +11216,34 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "columns is-mobile" }, [
-      _c("div", { staticClass: "column is-narrow" }, [
-        _c("div", { staticClass: "title is-4", attrs: { id: "logo" } }, [
-          _vm._v("G.")
+  return _c("div", { attrs: { id: "popup" } }, [
+    _c("div", { staticClass: "is-size-4", attrs: { id: "logo" } }, [
+      _vm._v("G.")
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "columns is-mobile" }, [
+        _c("div", { staticClass: "column" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "column is-narrow" }, [
+          _c("div", { staticClass: "title is-5 is-uppercase" }, [
+            _c("button", { staticClass: "button is-info is-outlined" }, [
+              _c(
+                "span",
+                { staticClass: "icon is-small" },
+                [_c("font-awesome-icon", { attrs: { icon: "shoe-prints" } })],
+                1
+              ),
+              _vm._v(" "),
+              _c("span", [_vm._v("Go!")])
+            ])
+          ])
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "column" })
+      ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
