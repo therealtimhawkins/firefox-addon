@@ -10072,7 +10072,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Playfair+Display:900:italic&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n#popup[data-v-1704dd8e] {\n  width: 200px;\n  padding: 8px 8px 8px 8px;\n}\n#logo[data-v-1704dd8e] {\n  font-family: \"Playfair Display\", serif, italic;\n  font-weight: 900;\n}\n", ""]);
+exports.push([module.i, "\n#popup[data-v-1704dd8e] {\n  width: 200px;\n  padding: 8px 8px 8px 8px;\n}\n#logo[data-v-1704dd8e] {\n  font-family: \"Playfair Display\", serif, italic;\n  font-weight: 900;\n  padding: 0 4px 4px 4px;\n}\n", ""]);
 
 // exports
 
@@ -11235,7 +11235,7 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _c("span", [_vm._v("Go!")])
+              _c("span", [_vm._v("Get footprint!")])
             ])
           ])
         ])

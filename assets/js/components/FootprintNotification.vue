@@ -10,7 +10,7 @@
               <span class="icon is-small">
                 <font-awesome-icon icon="shoe-prints" />
               </span>
-              <span>Go!</span>
+              <span>Get footprint!</span>
             </button>
           </div>
         </div>
@@ -37,5 +37,6 @@ export default {
 #logo {
   font-family: "Playfair Display", serif, italic;
   font-weight: 900;
+  padding: 0 4px 4px 4px;
 }
 </style>
