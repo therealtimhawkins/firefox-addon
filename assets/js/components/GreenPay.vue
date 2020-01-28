@@ -77,7 +77,9 @@ export default {
   },
   created() {
     browser.runtime.onMessage.addListener(message => {
-      if (message.action === "returnItems") {
+      console.log("message hit: ", message)
+      if (message.action === "returnItems" && message.items.length) {
+        console.log("resetting items")
         this.items = message.items
         this.name = message.name
         this.getFootprint()

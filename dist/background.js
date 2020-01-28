@@ -871,14 +871,12 @@ function connected(page_script) {
           switch (_context.prev = _context.next) {
             case 0:
               url = urlParser(tabs[0].url);
-              console.log("url: ", url);
               name = url;
-              _context.next = 5;
+              _context.next = 4;
               return __webpack_require__("./urlConfigs sync recursive ^\\.\\/.*\\/config\\.json$")("./" + url + "/config.json");
 
-            case 5:
+            case 4:
               data = _context.sent;
-              console.log("data: ", data);
 
               if (data) {
                 page_script.postMessage({
@@ -886,7 +884,7 @@ function connected(page_script) {
                 });
               }
 
-            case 8:
+            case 6:
             case "end":
               return _context.stop();
           }
@@ -923,7 +921,7 @@ function _router() {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.t0 = message.action;
-            _context2.next = _context2.t0 === "scrapeItems" ? 3 : _context2.t0 === "setItems" ? 8 : _context2.t0 === "getItems" ? 10 : 11;
+            _context2.next = _context2.t0 === "scrapeItems" ? 3 : _context2.t0 === "setItems" ? 8 : _context2.t0 === "getItems" ? 10 : 12;
             break;
 
           case 3:
@@ -940,23 +938,27 @@ function _router() {
               allFrames: true
             });
             executingPage.then(onExecuted, onError);
-            return _context2.abrupt("break", 12);
+            return _context2.abrupt("break", 13);
 
           case 8:
             items = message.items;
-            return _context2.abrupt("break", 12);
+            return _context2.abrupt("break", 13);
 
           case 10:
-            browser.runtime.sendMessage({
-              action: "returnItems",
-              items: items,
-              name: name
-            });
+            if (items.length) {
+              browser.runtime.sendMessage({
+                action: "returnItems",
+                items: items,
+                name: name
+              });
+            }
 
-          case 11:
-            return _context2.abrupt("break", 12);
+            items = null;
 
           case 12:
+            return _context2.abrupt("break", 13);
+
+          case 13:
           case "end":
             return _context2.stop();
         }

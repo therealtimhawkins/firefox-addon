@@ -140,7 +140,6 @@ function formatItems(items, data) {
     });
   }
 
-  console.log(formattedItems);
   return formattedItems;
 }
 
@@ -150,7 +149,6 @@ var myPort = browser.runtime.connect({
 myPort.onMessage.addListener(function (message) {
   console.log("messageData: ", message.data);
   setTimeout(function () {
-    console.log("end timer");
     browser.runtime.sendMessage({
       action: "setItems",
       items: formatItems(document.getElementsByClassName(message.data.bag), message.data)

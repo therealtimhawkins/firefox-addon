@@ -32,7 +32,6 @@ function formatItems(items, data) {
     const size = getItemField(items[itemCount], data.size)
     formattedItems.push({ name, description, price, size })
   }
-  console.log(formattedItems)
   return formattedItems
 }
 
@@ -40,7 +39,6 @@ const myPort = browser.runtime.connect({ name: "port-from-cs" })
 myPort.onMessage.addListener(function(message) {
   console.log("messageData: ", message.data)
   setTimeout(() => {
-    console.log("end timer")
     browser.runtime.sendMessage({
       action: "setItems",
       items: formatItems(

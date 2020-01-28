@@ -12880,7 +12880,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var _this = this;
 
     browser.runtime.onMessage.addListener(function (message) {
-      if (message.action === "returnItems") {
+      console.log("message hit: ", message);
+
+      if (message.action === "returnItems" && message.items.length) {
+        console.log("resetting items");
         _this.items = message.items;
         _this.name = message.name;
 
