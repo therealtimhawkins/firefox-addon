@@ -1,5 +1,5 @@
 import Vue from "vue"
-import App from "./components/GreenPay.vue"
+import App from "./components/FootprintNotification.vue"
 import VueSlider from "v-show-slide"
 require("../scss/main.scss")
 
