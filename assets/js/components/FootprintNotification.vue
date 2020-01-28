@@ -6,7 +6,10 @@
         <div class="column"></div>
         <div class="column is-narrow">
           <div class="title is-5 is-uppercase">
-            <button class="button is-info is-outlined">
+            <button
+              @click="routeToGreenPay()"
+              class="button is-info is-outlined"
+            >
               <span class="icon is-small">
                 <font-awesome-icon icon="shoe-prints" />
               </span>
@@ -22,7 +25,9 @@
 <script>
 export default {
   name: "FootprintNotification",
-  components: {}
+  props: {
+    routeToGreenPay: Function
+  }
 }
 </script>
 
