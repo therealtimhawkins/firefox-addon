@@ -147,7 +147,6 @@ var myPort = browser.runtime.connect({
   name: "port-from-cs"
 });
 myPort.onMessage.addListener(function (message) {
-  console.log("messageData: ", message.data);
   setTimeout(function () {
     browser.runtime.sendMessage({
       action: "setItems",

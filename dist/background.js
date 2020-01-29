@@ -921,7 +921,7 @@ function _router() {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.t0 = message.action;
-            _context2.next = _context2.t0 === "scrapeItems" ? 3 : _context2.t0 === "setItems" ? 8 : _context2.t0 === "getItems" ? 10 : 12;
+            _context2.next = _context2.t0 === "scrapeItems" ? 3 : _context2.t0 === "setItems" ? 8 : _context2.t0 === "getItems" ? 11 : 13;
             break;
 
           case 3:
@@ -938,13 +938,17 @@ function _router() {
               allFrames: true
             });
             executingPage.then(onExecuted, onError);
-            return _context2.abrupt("break", 13);
+            return _context2.abrupt("break", 14);
 
           case 8:
             items = message.items;
-            return _context2.abrupt("break", 13);
+            browser.tabs.executeScript({
+              file: "/scripts/notification_page_script.js",
+              allFrames: true
+            });
+            return _context2.abrupt("break", 14);
 
-          case 10:
+          case 11:
             if (items.length) {
               browser.runtime.sendMessage({
                 action: "returnItems",
@@ -955,10 +959,10 @@ function _router() {
 
             items = null;
 
-          case 12:
-            return _context2.abrupt("break", 13);
-
           case 13:
+            return _context2.abrupt("break", 14);
+
+          case 14:
           case "end":
             return _context2.stop();
         }
@@ -1013,7 +1017,7 @@ webpackContext.id = "./urlConfigs sync recursive ^\\.\\/.*\\/config\\.json$";
 /*! exports provided: bag, name, description, price, size, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"bag\":\"bag-item-holder\",\"name\":\"\",\"description\":\"\",\"price\":\"\",\"size\":\"\"}");
+module.exports = JSON.parse("{\"bag\":\"bag-item-holder\",\"name\":\"bag-item-name\",\"description\":\"\",\"price\":\"bag-item-price\",\"size\":\"\"}");
 
 /***/ }),
 

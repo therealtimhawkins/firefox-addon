@@ -37,7 +37,6 @@ function formatItems(items, data) {
 
 const myPort = browser.runtime.connect({ name: "port-from-cs" })
 myPort.onMessage.addListener(function(message) {
-  console.log("messageData: ", message.data)
   setTimeout(() => {
     browser.runtime.sendMessage({
       action: "setItems",

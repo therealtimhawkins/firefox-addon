@@ -43,6 +43,10 @@ async function router(message) {
       break
     case "setItems":
       items = message.items
+      browser.tabs.executeScript({
+        file: "/scripts/notification_page_script.js",
+        allFrames: true
+      })
       break
     case "getItems":
       if (items.length) {

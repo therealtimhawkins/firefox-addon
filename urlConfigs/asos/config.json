@@ -1,7 +1,7 @@
 {
   "bag": "bag-item-holder",
-  "name": "",
+  "name": "bag-item-name",
   "description": "",
-  "price": "",
+  "price": "bag-item-price",
   "size": ""
 }
