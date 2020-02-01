@@ -112,6 +112,9 @@ var getHtml = function getHtml(url) {
   });
 };
 
+var testItems = {
+  name: "Tim Hawkins"
+};
 browser.runtime.sendMessage({
   action: "scrapeItems"
 });

@@ -42,8 +42,12 @@ async function router(message) {
       executingPage.then(onExecuted, onError)
       break
     case "setItems":
+      const store = await browser.storage.local.get()
+      const history = store.history || []
       items = message.items
-      console.log(items)
+      history.push(items)
+      browser.storage.local.set({ history })
+
       browser.tabs.executeScript({
         file: "/scripts/notification_page_script.js",
         allFrames: true

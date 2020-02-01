@@ -12859,7 +12859,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       panel: "bag",
       name: "",
-      items: null
+      items: null,
+      history: null
     };
   },
   computed: {
@@ -12876,38 +12877,63 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return this.panel === "user";
     }
   },
-  created: function created() {
-    var _this = this;
+  created: function () {
+    var _created = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var _this = this;
 
-    browser.runtime.onMessage.addListener(function (message) {
-      console.log("message hit: ", message);
+      var store;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              browser.runtime.onMessage.addListener(function (message) {
+                if (message.action === "returnItems" && message.items.length) {
+                  _this.items = message.items;
+                  _this.name = message.name;
 
-      if (message.action === "returnItems" && message.items.length) {
-        console.log("resetting items");
-        _this.items = message.items;
-        _this.name = message.name;
+                  _this.getFootprint();
+                }
+              });
+              _context.next = 3;
+              return browser.storage.local.get();
 
-        _this.getFootprint();
-      }
-    });
-    browser.runtime.sendMessage({
-      action: "getItems"
-    });
-  },
+            case 3:
+              store = _context.sent;
+              this.history = store.history;
+              browser.runtime.sendMessage({
+                action: "getItems"
+              });
+
+            case 6:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this);
+    }));
+
+    function created() {
+      return _created.apply(this, arguments);
+    }
+
+    return created;
+  }(),
   methods: {
     getFootprint: function () {
       var _getFootprint = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee);
+        }, _callee2);
       }));
 
       function getFootprint() {
@@ -16836,26 +16862,6 @@ var render = function() {
                 "div",
                 { staticClass: "icon" },
                 [_c("font-awesome-icon", { attrs: { icon: "credit-card" } })],
-                1
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "card-footer-item",
-              on: {
-                click: function($event) {
-                  _vm.panel = "user"
-                }
-              }
-            },
-            [
-              _c(
-                "div",
-                { staticClass: "icon" },
-                [_c("font-awesome-icon", { attrs: { icon: "user" } })],
                 1
               )
             ]

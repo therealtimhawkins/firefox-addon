@@ -12,7 +12,7 @@
     "tabs",
     "webRequestBlocking",
     "*://*/*",
-    "https://www.asos.com/*"
+    "storage"
   ],
   "content_scripts": [
     {

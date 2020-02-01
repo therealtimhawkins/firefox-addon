@@ -16,4 +16,8 @@ const getHtml = url => {
   })
 }
 
+const testItems = {
+  name: "Tim Hawkins"
+}
+
 browser.runtime.sendMessage({ action: "scrapeItems" })

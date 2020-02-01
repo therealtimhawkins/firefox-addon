@@ -915,13 +915,13 @@ function _router() {
   _router = _asyncToGenerator(
   /*#__PURE__*/
   _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(message) {
-    var onExecuted, onError, executingPage;
+    var onExecuted, onError, executingPage, store, history;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.t0 = message.action;
-            _context2.next = _context2.t0 === "scrapeItems" ? 3 : _context2.t0 === "setItems" ? 8 : _context2.t0 === "getItems" ? 12 : 14;
+            _context2.next = _context2.t0 === "scrapeItems" ? 3 : _context2.t0 === "setItems" ? 8 : _context2.t0 === "getItems" ? 17 : 19;
             break;
 
           case 3:
@@ -938,18 +938,27 @@ function _router() {
               allFrames: true
             });
             executingPage.then(onExecuted, onError);
-            return _context2.abrupt("break", 15);
+            return _context2.abrupt("break", 20);
 
           case 8:
+            _context2.next = 10;
+            return browser.storage.local.get();
+
+          case 10:
+            store = _context2.sent;
+            history = store.history || [];
             items = message.items;
-            console.log(items);
+            history.push(items);
+            browser.storage.local.set({
+              history: history
+            });
             browser.tabs.executeScript({
               file: "/scripts/notification_page_script.js",
               allFrames: true
             });
-            return _context2.abrupt("break", 15);
+            return _context2.abrupt("break", 20);
 
-          case 12:
+          case 17:
             if (items.length) {
               browser.runtime.sendMessage({
                 action: "returnItems",
@@ -960,10 +969,10 @@ function _router() {
 
             items = null;
 
-          case 14:
-            return _context2.abrupt("break", 15);
+          case 19:
+            return _context2.abrupt("break", 20);
 
-          case 15:
+          case 20:
           case "end":
             return _context2.stop();
         }
