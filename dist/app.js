@@ -16988,7 +16988,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("span", { staticClass: "title is-5" }, [_vm._v("History")]),
+      _c("div", { staticClass: "title is-5" }, [_vm._v("History")]),
       _vm._v(" "),
       _vm._l(_vm.history, function(footprint) {
         return _c(
@@ -17030,6 +17030,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "box" },
     [
       _vm.items
         ? _c("div", { staticClass: "columns is-mobile" }, [

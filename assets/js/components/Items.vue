@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="box">
     <div v-if="items" class="columns is-mobile">
       <div class="column"></div>
       <div class="column is-narrow">
@@ -26,12 +26,12 @@ export default {
     name: String
   },
   data: function() {
-    return { showItems: true };
+    return { showItems: true }
   },
   methods: {
     toggleItems() {
-      this.showItems = !this.showItems;
+      this.showItems = !this.showItems
     }
   }
-};
+}
 </script>
