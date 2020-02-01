@@ -921,7 +921,7 @@ function _router() {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.t0 = message.action;
-            _context2.next = _context2.t0 === "scrapeItems" ? 3 : _context2.t0 === "setItems" ? 8 : _context2.t0 === "getItems" ? 11 : 13;
+            _context2.next = _context2.t0 === "scrapeItems" ? 3 : _context2.t0 === "setItems" ? 8 : _context2.t0 === "getItems" ? 12 : 14;
             break;
 
           case 3:
@@ -938,17 +938,18 @@ function _router() {
               allFrames: true
             });
             executingPage.then(onExecuted, onError);
-            return _context2.abrupt("break", 14);
+            return _context2.abrupt("break", 15);
 
           case 8:
             items = message.items;
+            console.log(items);
             browser.tabs.executeScript({
               file: "/scripts/notification_page_script.js",
               allFrames: true
             });
-            return _context2.abrupt("break", 14);
+            return _context2.abrupt("break", 15);
 
-          case 11:
+          case 12:
             if (items.length) {
               browser.runtime.sendMessage({
                 action: "returnItems",
@@ -959,10 +960,10 @@ function _router() {
 
             items = null;
 
-          case 13:
-            return _context2.abrupt("break", 14);
-
           case 14:
+            return _context2.abrupt("break", 15);
+
+          case 15:
           case "end":
             return _context2.stop();
         }

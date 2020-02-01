@@ -43,6 +43,7 @@ async function router(message) {
       break
     case "setItems":
       items = message.items
+      console.log(items)
       browser.tabs.executeScript({
         file: "/scripts/notification_page_script.js",
         allFrames: true

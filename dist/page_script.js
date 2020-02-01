@@ -148,10 +148,14 @@ var myPort = browser.runtime.connect({
 });
 myPort.onMessage.addListener(function (message) {
   setTimeout(function () {
-    browser.runtime.sendMessage({
-      action: "setItems",
-      items: formatItems(document.getElementsByClassName(message.data.bag), message.data)
-    });
+    var items = formatItems(document.getElementsByClassName(message.data.bag), message.data);
+
+    if (items.length) {
+      browser.runtime.sendMessage({
+        action: "setItems",
+        items: items
+      });
+    }
   }, 2000);
 });
 
