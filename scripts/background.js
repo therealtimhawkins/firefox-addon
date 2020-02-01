@@ -44,8 +44,9 @@ async function router(message) {
     case "setItems":
       const store = await browser.storage.local.get()
       const history = store.history || []
+      const time = new Date().getTime()
       items = message.items
-      history.push({ name, items })
+      history.push({ name, items, time })
       browser.storage.local.set({ history })
 
       browser.tabs.executeScript({

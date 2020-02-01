@@ -1,9 +1,12 @@
 <template>
-  <span class="box">
+  <span class="box is-primary">
     <div v-if="items" class="columns is-mobile">
       <div class="column"></div>
       <div class="column is-narrow">
         <div class="title is-5 is-uppercase">{{ name }}</div>
+        <div class="subtitle is-6 align-right">
+          {{ formattedTime }}
+        </div>
       </div>
     </div>
     <div v-for="item in items" v-bind:key="item.name + item.description">
@@ -19,14 +22,21 @@
 </template>
 
 <script>
+import moment from "moment"
 export default {
   name: "Items",
   props: {
     items: Array,
-    name: String
+    name: String,
+    time: String
   },
   data: function() {
     return { showItems: true }
+  },
+  computed: {
+    formattedTime() {
+      return moment(this.time).format("DD/MM/YY")
+    }
   },
   methods: {
     toggleItems() {

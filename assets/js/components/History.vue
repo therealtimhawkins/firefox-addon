@@ -1,13 +1,17 @@
 <template>
-  <div class="scrolling-wrapper">
-    <template v-for="footprint in history">
-      <Items
-        :items="footprint.items"
-        :name="footprint.name"
-        v-bind:key="footprint.name"
-        class="scrolling-card"
-      />
-    </template>
+  <div>
+    <div class="title is-5">History</div>
+    <div class="scrolling-wrapper">
+      <template v-for="footprint in history">
+        <Items
+          :items="footprint.items"
+          :name="footprint.name"
+          :time="footprint.time"
+          v-bind:key="footprint.name"
+          class="scrolling-card"
+        />
+      </template>
+    </div>
   </div>
 </template>
 
@@ -30,6 +34,7 @@ export default {
 }
 .scrolling-card {
   display: inline-block;
-  margin: 0 32px 0 0;
+  margin: 0 16px 0 16px;
+  width: 260px;
 }
 </style>
