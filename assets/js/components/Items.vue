@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <span class="box">
     <div v-if="items" class="columns is-mobile">
       <div class="column"></div>
       <div class="column is-narrow">
@@ -15,7 +15,7 @@
         <li class="is-size-7">{{ item.size }}</li>
       </ul>
     </div>
-  </div>
+  </span>
 </template>
 
 <script>
