@@ -20,4 +20,6 @@ const testItems = {
   name: "Tim Hawkins"
 }
 
+// browser.storage.local.set({ history: [] })
+
 browser.runtime.sendMessage({ action: "scrapeItems" })

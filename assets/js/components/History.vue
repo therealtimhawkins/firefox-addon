@@ -2,7 +2,7 @@
   <div>
     <span class="title is-5">History</span>
     <div v-for="footprint in history" v-bind:key="footprint.name">
-      <Items :items="footprint" />
+      <Items :items="footprint.items" :name="footprint.name" />
     </div>
   </div>
 </template>

@@ -4,12 +4,6 @@
     <div class="card">
       <div class="card-content">
         <div class="section">
-          <div v-if="items" class="columns is-mobile">
-            <div class="column"></div>
-            <div class="column is-narrow">
-              <div class="title is-5 is-uppercase">{{ name }}</div>
-            </div>
-          </div>
           <Footprint v-if="footprint" />
           <History :history="history" v-if="bag" />
           <CardDetails v-if="card" />

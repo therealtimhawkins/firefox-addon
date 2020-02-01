@@ -12901,12 +12901,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -13076,10 +13070,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Items",
   props: {
-    items: Array
+    items: Array,
+    name: String
   },
   data: function data() {
     return {
@@ -16887,18 +16885,6 @@ var render = function() {
             "div",
             { staticClass: "section" },
             [
-              _vm.items
-                ? _c("div", { staticClass: "columns is-mobile" }, [
-                    _c("div", { staticClass: "column" }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "column is-narrow" }, [
-                      _c("div", { staticClass: "title is-5 is-uppercase" }, [
-                        _vm._v(_vm._s(_vm.name))
-                      ])
-                    ])
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
               _vm.footprint ? _c("Footprint") : _vm._e(),
               _vm._v(" "),
               _vm.bag
@@ -17008,7 +16994,11 @@ var render = function() {
         return _c(
           "div",
           { key: footprint.name },
-          [_c("Items", { attrs: { items: footprint } })],
+          [
+            _c("Items", {
+              attrs: { items: footprint.items, name: footprint.name }
+            })
+          ],
           1
         )
       })
@@ -17038,21 +17028,21 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("span", { staticClass: "title is-5" }, [_vm._v("Items")]),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "show-slide",
-            rawName: "v-show-slide",
-            value: _vm.showItems,
-            expression: "showItems"
-          }
-        ]
-      },
+  return _c(
+    "div",
+    [
+      _vm.items
+        ? _c("div", { staticClass: "columns is-mobile" }, [
+            _c("div", { staticClass: "column" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "column is-narrow" }, [
+              _c("div", { staticClass: "title is-5 is-uppercase" }, [
+                _vm._v(_vm._s(_vm.name))
+              ])
+            ])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
       _vm._l(_vm.items, function(item) {
         return _c("div", { key: item.name + item.description }, [
           _c("br"),
@@ -17073,10 +17063,10 @@ var render = function() {
             _c("li", { staticClass: "is-size-7" }, [_vm._v(_vm._s(item.size))])
           ])
         ])
-      }),
-      0
-    )
-  ])
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
