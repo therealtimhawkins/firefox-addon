@@ -11,7 +11,7 @@
             </div>
           </div>
           <Footprint v-if="footprint" />
-          <Items :items="items" v-if="bag" />
+          <History :history="history" v-if="bag" />
           <CardDetails v-if="card" />
         </div>
       </div>
@@ -43,7 +43,7 @@
 <script type="application/javascript" src="https://js.stripe.com/v3/"></script>
 <script>
 import NavBar from "./NavBar";
-import Items from "./Items.vue";
+import History from "./History.vue";
 import CardDetails from "./CardDetails";
 import Footprint from "./Footprint";
 import Payment from "./Payment";
@@ -53,7 +53,7 @@ import get from "lodash.get";
 
 export default {
   name: "GreenPay",
-  components: { NavBar, Items, CardDetails, Footprint, Payment },
+  components: { NavBar, History, CardDetails, Footprint, Payment },
   data: function() {
     return {
       panel: "bag",
@@ -86,6 +86,7 @@ export default {
     });
 
     const store = await browser.storage.local.get();
+    console.log(history.length);
     this.history = store.history;
 
     browser.runtime.sendMessage({ action: "getItems" });

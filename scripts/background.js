@@ -45,7 +45,7 @@ async function router(message) {
       const store = await browser.storage.local.get()
       const history = store.history || []
       items = message.items
-      history.push(items)
+      history.push({ name, items })
       browser.storage.local.set({ history })
 
       browser.tabs.executeScript({

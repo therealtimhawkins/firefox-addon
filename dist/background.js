@@ -948,7 +948,10 @@ function _router() {
             store = _context2.sent;
             history = store.history || [];
             items = message.items;
-            history.push(items);
+            history.push({
+              name: name,
+              items: items
+            });
             browser.storage.local.set({
               history: history
             });
