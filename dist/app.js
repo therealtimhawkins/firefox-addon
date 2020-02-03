@@ -13268,7 +13268,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Playfair+Display:900:italic&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n#greenpay[data-v-63b38346] {\n  width: 400px;\n  height: 600px;\n  padding-top: 45px;\n  padding-bottom: 40px;\n}\n#logo[data-v-63b38346] {\n  font-family: \"Playfair Display\", serif, italic;\n  font-weight: 900;\n}\n.icon[data-v-63b38346] {\n  font-size: 1.5em;\n}\na[data-v-63b38346] {\n  color: inherit;\n}\n.fixed-header[data-v-63b38346],\n.fixed-footer[data-v-63b38346] {\n  width: 100%;\n  position: fixed;\n}\n.fixed-header[data-v-63b38346] {\n  top: 0;\n}\n.fixed-footer[data-v-63b38346] {\n  bottom: 0;\n}\n", ""]);
+exports.push([module.i, "\n#greenpay[data-v-63b38346] {\n  width: 400px;\n  height: 600px;\n  padding-top: 36px;\n  padding-bottom: 40px;\n}\n#logo[data-v-63b38346] {\n  font-family: \"Playfair Display\", serif, italic;\n  font-weight: 900;\n}\n.icon[data-v-63b38346] {\n  font-size: 1.5em;\n}\na[data-v-63b38346] {\n  color: inherit;\n}\n.fixed-header[data-v-63b38346],\n.fixed-footer[data-v-63b38346] {\n  width: 100%;\n  position: fixed;\n}\n.fixed-header[data-v-63b38346] {\n  top: 0;\n}\n.fixed-footer[data-v-63b38346] {\n  bottom: 0;\n}\n", ""]);
 
 // exports
 
@@ -34712,7 +34712,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "box" },
+    { staticClass: "box has-background-light" },
     [
       _vm.items
         ? _c("div", { staticClass: "columns is-mobile" }, [

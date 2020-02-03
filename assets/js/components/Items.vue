@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div class="box has-background-light">
     <div v-if="items" class="columns is-mobile">
       <div class="column is-narrow">
         <div class="icon">

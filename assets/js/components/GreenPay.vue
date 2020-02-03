@@ -88,7 +88,7 @@ export default {
 #greenpay {
   width: 400px;
   height: 600px;
-  padding-top: 45px;
+  padding-top: 36px;
   padding-bottom: 40px;
 }
 
