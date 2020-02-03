@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="title is-5">History</div>
+    <br />
     <div class="scrolling-wrapper">
       <template v-for="footprint in history">
         <Items
@@ -12,6 +12,7 @@
         />
       </template>
     </div>
+    <br />
   </div>
 </template>
 
@@ -34,7 +35,8 @@ export default {
 }
 .scrolling-card {
   display: inline-block;
-  margin: 0 16px 0 16px;
-  width: 260px;
+  margin-right: 12px;
+  margin-left: 12px;
+  width: 376px;
 }
 </style>

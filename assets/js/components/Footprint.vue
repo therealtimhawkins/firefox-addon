@@ -1,7 +1,5 @@
 <template>
   <div>
-    <span class="title is-5">Footprint</span>
-    <br />
     <br />
     <CarbonChart />
   </div>
