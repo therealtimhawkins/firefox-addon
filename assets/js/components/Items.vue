@@ -1,5 +1,5 @@
 <template>
-  <div class="box has-background-light">
+  <div class="box has-background-light has-no-shadow">
     <div v-if="items" class="columns is-mobile">
       <div class="column is-narrow">
         <div class="icon">
@@ -8,9 +8,7 @@
       </div>
       <div class="column">
         <div class="title is-5 is-uppercase">{{ name }}</div>
-        <div class="subtitle is-6 align-right">
-          {{ formattedTime }}
-        </div>
+        <div class="subtitle is-6 align-right">{{ formattedTime }}</div>
       </div>
     </div>
     <div v-for="item in items" v-bind:key="item.name + item.description">
@@ -19,10 +17,7 @@
           <div class="media">
             <div class="media-left">
               <figure class="image is-48x48">
-                <img
-                  src="https://bulma.io/images/placeholders/96x96.png"
-                  alt="Placeholder image"
-                />
+                <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" />
               </figure>
             </div>
             <div class="media-content">
@@ -39,7 +34,7 @@
 </template>
 
 <script>
-import moment from "moment"
+import moment from "moment";
 export default {
   name: "Items",
   props: {
@@ -48,19 +43,19 @@ export default {
     time: String
   },
   data: function() {
-    return { showItems: true }
+    return { showItems: true };
   },
   computed: {
     formattedTime() {
-      return moment(this.time).format("DD/MM/YY hh:mm:ss")
+      return moment(this.time).format("DD/MM/YY hh:mm:ss");
     }
   },
   methods: {
     toggleItems() {
-      this.showItems = !this.showItems
+      this.showItems = !this.showItems;
     }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -71,5 +66,9 @@ export default {
 
 .card-content {
   white-space: initial;
+}
+
+.has-no-shadow {
+  box-shadow: 0 0 0 0 !important;
 }
 </style>

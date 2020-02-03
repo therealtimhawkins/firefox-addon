@@ -13121,11 +13121,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Items",
@@ -13306,7 +13301,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.icon[data-v-51a7ea6f] {\n  padding: 16px 0 0 0;\n  font-size: 2em;\n}\n.card-content[data-v-51a7ea6f] {\n  white-space: initial;\n}\n", ""]);
+exports.push([module.i, "\n.icon[data-v-51a7ea6f] {\n  padding: 16px 0 0 0;\n  font-size: 2em;\n}\n.card-content[data-v-51a7ea6f] {\n  white-space: initial;\n}\n.has-no-shadow[data-v-51a7ea6f] {\n  box-shadow: 0 0 0 0 !important;\n}\n", ""]);
 
 // exports
 
@@ -34712,7 +34707,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "box has-background-light" },
+    { staticClass: "box has-background-light has-no-shadow" },
     [
       _vm.items
         ? _c("div", { staticClass: "columns is-mobile" }, [
@@ -34731,7 +34726,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "subtitle is-6 align-right" }, [
-                _vm._v("\n        " + _vm._s(_vm.formattedTime) + "\n      ")
+                _vm._v(_vm._s(_vm.formattedTime))
               ])
             ])
           ])
