@@ -12944,7 +12944,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       panel: "bag",
-      name: "",
+      name: null,
       items: null,
       history: null
     };
@@ -12988,11 +12988,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 3:
               store = _context.sent;
               this.history = store.history;
+              console.log(JSON.stringify(this.history));
               browser.runtime.sendMessage({
                 action: "getItems"
               });
 
-            case 6:
+            case 7:
             case "end":
               return _context.stop();
           }
@@ -13121,13 +13122,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Items",
   props: {
     items: Array,
     name: String,
-    time: String
+    time: Number
   },
   data: function data() {
     return {
@@ -13263,7 +13270,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Playfair+Display:900:italic&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n#greenpay[data-v-63b38346] {\n  width: 400px;\n  height: 600px;\n  padding-top: 36px;\n  padding-bottom: 40px;\n}\n#logo[data-v-63b38346] {\n  font-family: \"Playfair Display\", serif, italic;\n  font-weight: 900;\n}\n.icon[data-v-63b38346] {\n  font-size: 1.5em;\n}\na[data-v-63b38346] {\n  color: inherit;\n}\n.fixed-header[data-v-63b38346],\n.fixed-footer[data-v-63b38346] {\n  width: 100%;\n  position: fixed;\n}\n.fixed-header[data-v-63b38346] {\n  top: 0;\n}\n.fixed-footer[data-v-63b38346] {\n  bottom: 0;\n}\n", ""]);
+exports.push([module.i, "\n#greenpay[data-v-63b38346] {\n  width: 400px;\n  height: 660px;\n  padding-top: 36px;\n}\n#logo[data-v-63b38346] {\n  font-family: \"Playfair Display\", serif, italic;\n  font-weight: 900;\n}\n.icon[data-v-63b38346] {\n  font-size: 1.5em;\n}\na[data-v-63b38346] {\n  color: inherit;\n}\n.fixed-header[data-v-63b38346],\n.fixed-footer[data-v-63b38346] {\n  width: 100%;\n  position: fixed;\n}\n.fixed-header[data-v-63b38346] {\n  top: 0;\n}\n.fixed-footer[data-v-63b38346] {\n  bottom: 0;\n}\n", ""]);
 
 // exports
 
@@ -13282,7 +13289,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.scrolling-wrapper[data-v-06abb383] {\n  overflow-x: scroll;\n  overflow-y: hidden;\n  white-space: nowrap;\n}\n.scrolling-card[data-v-06abb383] {\n  display: inline-block;\n  margin-right: 12px;\n  margin-left: 12px;\n  width: 376px;\n}\n", ""]);
+exports.push([module.i, "\n.scrolling-wrapper[data-v-06abb383] {\n  overflow-x: scroll;\n  overflow-y: hidden;\n  white-space: nowrap;\n}\n.scrolling-card[data-v-06abb383] {\n  display: inline-block;\n  margin-right: 12px;\n  margin-left: 12px;\n  width: 376px;\n}\n.scrolling-card[data-v-06abb383]::-webkit-scrollbar {\n  display: none;\n}\n", ""]);
 
 // exports
 
@@ -13301,7 +13308,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.icon[data-v-51a7ea6f] {\n  padding: 16px 0 0 0;\n  font-size: 2em;\n}\n.card-content[data-v-51a7ea6f] {\n  white-space: initial;\n}\n.has-no-shadow[data-v-51a7ea6f] {\n  box-shadow: 0 0 0 0 !important;\n}\n", ""]);
+exports.push([module.i, "\n.greenpay-icon-large[data-v-51a7ea6f] {\n  padding: 20px 0 0 0;\n  margin: 0 0 0 8px;\n  font-size: 2em;\n}\n.card-content[data-v-51a7ea6f] {\n  white-space: initial;\n}\n.has-no-shadow[data-v-51a7ea6f] {\n  box-shadow: 0 0 0 0 !important;\n}\n.is-padded-top[data-v-51a7ea6f] {\n  margin-top: 16px;\n}\n", ""]);
 
 // exports
 
@@ -34666,7 +34673,7 @@ var render = function() {
         _vm._l(_vm.history, function(footprint) {
           return [
             _c("Items", {
-              key: footprint.name,
+              key: footprint.name + footprint.time,
               staticClass: "scrolling-card",
               attrs: {
                 items: footprint.items,
@@ -34707,14 +34714,14 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "box has-background-light has-no-shadow" },
+    { staticClass: "box has-no-shadow" },
     [
       _vm.items
         ? _c("div", { staticClass: "columns is-mobile" }, [
             _c("div", { staticClass: "column is-narrow" }, [
               _c(
                 "div",
-                { staticClass: "icon" },
+                { staticClass: "icon greenpay-icon-large" },
                 [_c("font-awesome-icon", { attrs: { icon: "shopping-bag" } })],
                 1
               )
@@ -34760,7 +34767,22 @@ var render = function() {
             ])
           ])
         ])
-      })
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "button is-fullwidth is-small is-dark is-padded-top" },
+        [
+          _c(
+            "span",
+            { staticClass: "icon is-small" },
+            [_c("font-awesome-icon", { attrs: { icon: "shoe-prints" } })],
+            1
+          ),
+          _vm._v(" "),
+          _c("span", [_vm._v("Get footprint")])
+        ]
+      )
     ],
     2
   )

@@ -7,7 +7,7 @@
           :items="footprint.items"
           :name="footprint.name"
           :time="footprint.time"
-          v-bind:key="footprint.name"
+          v-bind:key="footprint.name + footprint.time"
           class="scrolling-card"
         />
       </template>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import Items from "./Items.vue"
+import Items from "./Items.vue";
 export default {
   name: "History",
   components: { Items },
@@ -25,7 +25,7 @@ export default {
     history: Array
   },
   methods: {}
-}
+};
 </script>
 <style scoped>
 .scrolling-wrapper {
@@ -38,5 +38,9 @@ export default {
   margin-right: 12px;
   margin-left: 12px;
   width: 376px;
+}
+
+.scrolling-card::-webkit-scrollbar {
+  display: none;
 }
 </style>

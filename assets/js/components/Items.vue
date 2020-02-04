@@ -1,8 +1,8 @@
 <template>
-  <div class="box has-background-light has-no-shadow">
+  <div class="box has-no-shadow">
     <div v-if="items" class="columns is-mobile">
       <div class="column is-narrow">
-        <div class="icon">
+        <div class="icon greenpay-icon-large">
           <font-awesome-icon icon="shopping-bag" />
         </div>
       </div>
@@ -30,6 +30,12 @@
         </div>
       </div>
     </div>
+    <div class="button is-fullwidth is-small is-dark is-padded-top">
+      <span class="icon is-small">
+        <font-awesome-icon icon="shoe-prints" />
+      </span>
+      <span>Get footprint</span>
+    </div>
   </div>
 </template>
 
@@ -40,7 +46,7 @@ export default {
   props: {
     items: Array,
     name: String,
-    time: String
+    time: Number
   },
   data: function() {
     return { showItems: true };
@@ -59,8 +65,9 @@ export default {
 </script>
 
 <style scoped>
-.icon {
-  padding: 16px 0 0 0;
+.greenpay-icon-large {
+  padding: 20px 0 0 0;
+  margin: 0 0 0 8px;
   font-size: 2em;
 }
 
@@ -70,5 +77,9 @@ export default {
 
 .has-no-shadow {
   box-shadow: 0 0 0 0 !important;
+}
+
+.is-padded-top {
+  margin-top: 16px;
 }
 </style>

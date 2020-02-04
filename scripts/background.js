@@ -1,4 +1,4 @@
-let items
+let items = []
 let name
 
 function connected(page_script) {

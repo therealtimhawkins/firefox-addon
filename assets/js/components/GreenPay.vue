@@ -20,19 +20,19 @@
           <font-awesome-icon icon="credit-card" />
         </div>
       </a>
-    </footer> -->
+    </footer>-->
   </div>
 </template>
 <script type="application/javascript" src="https://js.stripe.com/v3/"></script>
 <script>
-import NavBar from "./NavBar"
-import History from "./History.vue"
-import CardDetails from "./CardDetails"
-import Footprint from "./Footprint"
-import Payment from "./Payment"
-import GreenPay from "../services/greenPay"
-import { request } from "../services/request"
-import get from "lodash.get"
+import NavBar from "./NavBar";
+import History from "./History.vue";
+import CardDetails from "./CardDetails";
+import Footprint from "./Footprint";
+import Payment from "./Payment";
+import GreenPay from "../services/greenPay";
+import { request } from "../services/request";
+import get from "lodash.get";
 
 export default {
   name: "GreenPay",
@@ -40,56 +40,51 @@ export default {
   data: function() {
     return {
       panel: "bag",
-      name: "",
+      name: null,
       items: null,
       history: null
-    }
+    };
   },
   computed: {
     bag() {
-      return this.panel === "bag"
+      return this.panel === "bag";
     },
     card() {
-      return this.panel === "card"
+      return this.panel === "card";
     },
     footprint() {
-      return this.panel === "footprint"
+      return this.panel === "footprint";
     },
     user() {
-      return this.panel === "user"
+      return this.panel === "user";
     }
   },
   async created() {
     browser.runtime.onMessage.addListener(message => {
       if (message.action === "returnItems" && message.items.length) {
-        this.items = message.items
-        this.name = message.name
-        this.getFootprint()
+        this.items = message.items;
+        this.name = message.name;
+        this.getFootprint();
       }
-    })
+    });
 
-    const store = await browser.storage.local.get()
-    this.history = store.history
-
-    browser.runtime.sendMessage({ action: "getItems" })
+    const store = await browser.storage.local.get();
+    this.history = store.history;
+    console.log(JSON.stringify(this.history));
+    browser.runtime.sendMessage({ action: "getItems" });
   },
   methods: {
-    async getFootprint() {
-      // console.log("Getting footprint");
-      // const result = await request("http://www.example.com");
-      // console.log(result);
-    }
+    async getFootprint() {}
   }
-}
+};
 </script>
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display:900:italic&display=swap");
 
 #greenpay {
   width: 400px;
-  height: 600px;
+  height: 660px;
   padding-top: 36px;
-  padding-bottom: 40px;
 }
 
 #logo {
