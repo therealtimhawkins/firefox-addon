@@ -27,6 +27,14 @@ const html = `<div class="gp-container" id="gp-container">
       </div>
       <div>
         <a
+          href="mailto:selfridges@example.com?subject=Your Carbon Footprint&body=${tweet}"
+          class="gp-social-button gp-mail"
+          data-show-count="false"
+          target="_blank"
+        >
+          <i class="fas fa-envelope-square"></i>
+        </a>
+        <a
           href="https://twitter.com/intent/tweet?button_hashtag=ClimateCrisis&ref_src=twsrc%5Etfw&text=${tweet}"
           class="gp-social-button gp-twitter"
           data-show-count="false"
@@ -100,6 +108,12 @@ const html = `<div class="gp-container" id="gp-container">
       .gp-twitter {
         position: absolute;
         right: 64px;
+        bottom: 12px;
+      }
+
+      .gp-mail {
+        position: absolute;
+        right: 112px;
         bottom: 12px;
       }
 
