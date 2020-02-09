@@ -83,7 +83,7 @@ const html = `<div class="gp-container" id="gp-container">
       }
 
       .gp-close-button {
-        font-size: 24px;
+        font-size: 16px;
         color: black;
         position: absolute;
         right: 16px;
