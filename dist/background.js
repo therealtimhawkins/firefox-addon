@@ -915,13 +915,13 @@ function _router() {
   _router = _asyncToGenerator(
   /*#__PURE__*/
   _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(message) {
-    var executingPage, store, history, time, footprint;
+    var executingPage, store, history, time;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.t0 = message.action;
-            _context2.next = _context2.t0 === "scrapeItems" ? 3 : _context2.t0 === "setItems" ? 6 : _context2.t0 === "getItems" ? 17 : 19;
+            _context2.next = _context2.t0 === "scrapeItems" ? 3 : _context2.t0 === "setItems" ? 6 : _context2.t0 === "getItems" ? 16 : 18;
             break;
 
           case 3:
@@ -930,7 +930,7 @@ function _router() {
               allFrames: true
             });
             executingPage.then(onExecuted, onError);
-            return _context2.abrupt("break", 20);
+            return _context2.abrupt("break", 19);
 
           case 6:
             _context2.next = 8;
@@ -940,8 +940,8 @@ function _router() {
             store = _context2.sent;
             history = store.history || [];
             time = new Date().getTime();
-            items = message.items;
-            footprint = {};
+            items = message.items; // SET FOOTPRINT
+
             history.push({
               name: name,
               items: items,
@@ -949,15 +949,14 @@ function _router() {
             });
             browser.storage.local.set({
               history: history
-            }); // SET FOOTPRINT
-
+            });
             browser.tabs.executeScript({
               file: "/scripts/notification_page_script.js",
               allFrames: true
             });
-            return _context2.abrupt("break", 20);
+            return _context2.abrupt("break", 19);
 
-          case 17:
+          case 16:
             if (items.length) {
               browser.runtime.sendMessage({
                 action: "returnItems",
@@ -968,10 +967,10 @@ function _router() {
 
             items = null;
 
-          case 19:
-            return _context2.abrupt("break", 20);
+          case 18:
+            return _context2.abrupt("break", 19);
 
-          case 20:
+          case 19:
           case "end":
             return _context2.stop();
         }

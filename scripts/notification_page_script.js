@@ -19,6 +19,9 @@ const html = `<div class="gp-container">
       src="https://platform.twitter.com/widgets.js"
       charset="utf-8"
     ></script>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank">
+      Share
+    </a>
   </div>
 </div>
 
@@ -33,9 +36,9 @@ const html = `<div class="gp-container">
     top: 16px;
     background-color: white;
     z-index: 1000;
-    -webkit-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.75);
-    -moz-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.75);
-    box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.75);
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(50, 50, 50, 0.64);
+    -moz-box-shadow:    0px 0px 3px 0px rgba(50, 50, 50, 0.64);
+    box-shadow:         0px 0px 3px 0px rgba(50, 50, 50, 0.64);
     padding: 16px 16px 16px 16px;
   }
 

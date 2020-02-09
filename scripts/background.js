@@ -39,12 +39,10 @@ async function router(message) {
       const time = new Date().getTime()
 
       items = message.items
-      const footprint = {}
+      // SET FOOTPRINT
 
       history.push({ name, items, time })
       browser.storage.local.set({ history })
-
-      // SET FOOTPRINT
 
       browser.tabs.executeScript({
         file: "/scripts/notification_page_script.js",
