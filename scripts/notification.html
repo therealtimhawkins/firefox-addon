@@ -10,13 +10,24 @@
   <body>
     <div class="gp-container">
       <div class="gp-logo">G.</div>
-      <br />
-      <div>Footprint found!</div>
-      <br />
+      <div class="gp-message">Footprint found!</div>
       <div class="gp-row">
-        <div class="gp-col-3"><i class="fa fa-pound-sign"></i>4.90</div>
-        <div class="gp-col-3"><i class="fa fa-tree"></i>2.7</div>
-        <div class="gp-col-3"><i class="fa fa-gas-pump"></i>84</div>
+        <div class="gp-col-4">
+          <div class="gp-info-box">
+            <i class="fa fa-pound-sign"></i
+            ><span class="gp-info-data">4.90</span>
+          </div>
+        </div>
+        <div class="gp-col-3">
+          <div class="gp-info-box">
+            <i class="fa fa-tree"></i><span class="gp-info-data">1.7</span>
+          </div>
+        </div>
+        <div class="gp-col-3">
+          <div class="gp-info-box">
+            <i class="fa fa-gas-pump"></i><span class="gp-info-data">84</span>
+          </div>
+        </div>
       </div>
       <div>
         <a
@@ -47,7 +58,7 @@
 
       .gp-container {
         font-family: "Arvo", serif;
-        width: 300px;
+        width: 380px;
         height: 200px;
         position: absolute;
         right: 16px;
@@ -58,6 +69,18 @@
         -moz-box-shadow: 0px 0px 3px 0px rgba(50, 50, 50, 0.64);
         box-shadow: 0px 0px 3px 0px rgba(50, 50, 50, 0.64);
         padding: 16px 16px 16px 16px;
+      }
+
+      .gp-message {
+        padding: 20px 0 20px 0;
+        font-size: 24px;
+      }
+
+      .gp-info-box {
+        font-size: 24px;
+      }
+      .gp-info-data {
+        margin-left: 8px;
       }
 
       .gp-social-button {
@@ -93,7 +116,7 @@
       .gp-logo {
         font-family: "Playfair Display", serif, italic;
         font-weight: 900;
-        font-size: x-large;
+        font-size: 24px;
       }
 
       .gp-row {
@@ -108,6 +131,10 @@
 
       .gp-col-3 {
         width: 30%;
+        float: left;
+      }
+      .gp-col-4 {
+        width: 40%;
         float: left;
       }
     </style>

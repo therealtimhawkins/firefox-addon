@@ -1,12 +1,23 @@
 const html = `<div class="gp-container">
       <div class="gp-logo">G.</div>
-      <br />
-      <div>Footprint found!</div>
-      <br />
+      <div class="gp-message">Footprint found!</div>
       <div class="gp-row">
-        <div class="gp-col-3">£4.90</div>
-        <div class="gp-col-3">37 miles</div>
-        <div class="gp-col-3">1.2 trees</div>
+        <div class="gp-col-4">
+          <div class="gp-info-box">
+            <i class="fa fa-pound-sign"></i
+            ><span class="gp-info-data">4.90</span>
+          </div>
+        </div>
+        <div class="gp-col-3">
+          <div class="gp-info-box">
+            <i class="fa fa-tree"></i><span class="gp-info-data">1.7</span>
+          </div>
+        </div>
+        <div class="gp-col-3">
+          <div class="gp-info-box">
+            <i class="fa fa-gas-pump"></i><span class="gp-info-data">84</span>
+          </div>
+        </div>
       </div>
       <div>
         <a
@@ -16,7 +27,7 @@ const html = `<div class="gp-container">
           target="_blank"
         >
           <div class="gp-social-icon">
-            <i class="fa fa-twitter"></i>
+            <i class="fab fa-twitter"></i>
           </div>
         </a>
         <a
@@ -25,7 +36,7 @@ const html = `<div class="gp-container">
           target="_blank"
         >
           <div class="gp-social-icon">
-            <i class="fa fa-facebook"></i>
+            <i class="fab fa-facebook"></i>
           </div>
         </a>
       </div>
@@ -37,8 +48,8 @@ const html = `<div class="gp-container">
 
       .gp-container {
         font-family: "Arvo", serif;
-        width: 300px;
-        height: 200px;
+        width: 380px;
+        height: 250px;
         position: absolute;
         right: 16px;
         top: 16px;
@@ -48,6 +59,18 @@ const html = `<div class="gp-container">
         -moz-box-shadow: 0px 0px 3px 0px rgba(50, 50, 50, 0.64);
         box-shadow: 0px 0px 3px 0px rgba(50, 50, 50, 0.64);
         padding: 16px 16px 16px 16px;
+      }
+
+      .gp-message {
+        padding: 16px 0 20px 0;
+        font-size: 16px;
+      }
+
+      .gp-info-box {
+        font-size: 28px;
+      }
+      .gp-info-data {
+        margin-left: 8px;
       }
 
       .gp-social-button {
@@ -83,7 +106,7 @@ const html = `<div class="gp-container">
       .gp-logo {
         font-family: "Playfair Display", serif, italic;
         font-weight: 900;
-        font-size: x-large;
+        font-size: 32px;
       }
 
       .gp-row {
@@ -100,15 +123,15 @@ const html = `<div class="gp-container">
         width: 30%;
         float: left;
       }
+      .gp-col-4 {
+        width: 40%;
+        float: left;
+      }
     </style>`
 
 const getData = async () => {
-  var faLink = document.createElement("link")
-  faLink.setAttribute(
-    "href",
-    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-  )
-  faLink.setAttribute("rel", "stylesheet")
+  var faLink = document.createElement("script")
+  faLink.setAttribute("src", "https://kit.fontawesome.com/7868dd5cb6.js")
   document.head.appendChild(faLink)
 
   const store = await browser.storage.local.get()
