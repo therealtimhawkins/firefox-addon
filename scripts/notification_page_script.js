@@ -26,18 +26,14 @@ const html = `<div class="gp-container">
           data-show-count="false"
           target="_blank"
         >
-          <div class="gp-social-icon">
-            <i class="fab fa-twitter"></i>
-          </div>
+          <i class="fab fa-twitter-square"></i>
         </a>
         <a
           class="gp-social-button gp-facebook"
           href="https://www.facebook.com/sharer/sharer.php?u=example.org"
           target="_blank"
         >
-          <div class="gp-social-icon">
-            <i class="fab fa-facebook"></i>
-          </div>
+          <i class="fab fa-facebook-square"></i>
         </a>
       </div>
     </div>
@@ -69,38 +65,30 @@ const html = `<div class="gp-container">
       .gp-info-box {
         font-size: 28px;
       }
+
       .gp-info-data {
         margin-left: 8px;
       }
 
       .gp-social-button {
-        width: 32px;
-        height: 32px;
+        font-size: 36px;
         color: black;
-        border: 2px solid black;
-        border-radius: 4px;
-        padding: 0 0 0 0;
       }
 
       .gp-social-button:hover {
-        background-color: black;
-        color: white;
+        color: gray;
       }
 
       .gp-twitter {
         position: absolute;
         right: 64px;
-        bottom: 16px;
-      }
-
-      .gp-social-icon {
-        margin: 7px 0px 0 8px;
+        bottom: 12px;
       }
 
       .gp-facebook {
         position: absolute;
         right: 16px;
-        bottom: 16px;
+        bottom: 12px;
       }
 
       .gp-logo {
@@ -123,6 +111,7 @@ const html = `<div class="gp-container">
         width: 30%;
         float: left;
       }
+
       .gp-col-4 {
         width: 40%;
         float: left;
