@@ -1,3 +1,6 @@
+let tweet =
+  "@Selfridges - My carbon footprint for these items was £4.07! 😲 Don&#39;t leave it up to me to stamp it out 🥾 @GreenPay"
+
 const html = `<div class="gp-container" id="gp-container">
       <div class="gp-logo">G.</div>
       <div class="gp-message">Footprint found!</div>
@@ -24,7 +27,7 @@ const html = `<div class="gp-container" id="gp-container">
       </div>
       <div>
         <a
-          href="https://twitter.com/intent/tweet?button_hashtag=button&ref_src=twsrc%5Etfw"
+          href="https://twitter.com/intent/tweet?button_hashtag=ClimateCrisis&ref_src=twsrc%5Etfw&text=${tweet}"
           class="gp-social-button gp-twitter"
           data-show-count="false"
           target="_blank"

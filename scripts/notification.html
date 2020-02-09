@@ -34,7 +34,15 @@
       </div>
       <div>
         <a
-          href="https://twitter.com/intent/tweet?button_hashtag=button&ref_src=twsrc%5Etfw"
+          href=""
+          class="gp-social-button gp-mail"
+          data-show-count="false"
+          target="_blank"
+        >
+          <i class="fas fa-envelope-square"></i>
+        </a>
+        <a
+          href="https://twitter.com/intent/tweet?button_hashtag=button&ref_src=twsrc%5Etfw&text=my%20text%20here"
           class="gp-social-button gp-twitter"
           data-show-count="false"
           target="_blank"
@@ -102,6 +110,12 @@
 
       .gp-close-button:hover {
         color: gray;
+      }
+
+      .gp-mail {
+        position: absolute;
+        right: 112px;
+        bottom: 12px;
       }
 
       .gp-twitter {
