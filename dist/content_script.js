@@ -112,10 +112,6 @@ var getHtml = function getHtml(url) {
   });
 };
 
-var testItems = {
-  name: "Tim Hawkins"
-}; // browser.storage.local.set({ history: [] })
-
 browser.runtime.sendMessage({
   action: "scrapeItems"
 });

@@ -26,14 +26,6 @@ function urlParser(url) {
 async function router(message) {
   switch (message.action) {
     case "scrapeItems":
-      function onExecuted(result) {
-        console.log(`Got html!`)
-      }
-
-      function onError(error) {
-        console.log(`Error: ${error}`)
-      }
-
       const executingPage = browser.tabs.executeScript({
         file: "/scripts/page_script.js",
         allFrames: true
@@ -45,9 +37,14 @@ async function router(message) {
       const store = await browser.storage.local.get()
       const history = store.history || []
       const time = new Date().getTime()
+
       items = message.items
+      const footprint = {}
+
       history.push({ name, items, time })
       browser.storage.local.set({ history })
+
+      // SET FOOTPRINT
 
       browser.tabs.executeScript({
         file: "/scripts/notification_page_script.js",

@@ -1,4 +1,4 @@
-const html = `<div class="gp-container">
+<div class="container">
   <div class="logo">G.</div>
   <div>Footprint found!</div>
   <div>
@@ -10,8 +10,8 @@ const html = `<div class="gp-container">
     <a
       href="https://twitter.com/intent/tweet?button_hashtag=button&ref_src=twsrc%5Etfw"
       class="twitter-hashtag-button"
-      data-show-count="false"
       target="_blank"
+      data-show-count="false"
       >Tweet</a
     >
     <script
@@ -25,7 +25,7 @@ const html = `<div class="gp-container">
 <style>
   @import url("https://fonts.googleapis.com/css?family=Playfair+Display:900:italic&display=swap");
 
-  .gp-container {
+  .container {
     width: 300px;
     height: 200px;
     position: absolute;
@@ -44,16 +44,4 @@ const html = `<div class="gp-container">
     font-weight: 900;
     font-size: x-large;
   }
-</style>`
-
-const getData = async () => {
-  const store = await browser.storage.local.get()
-  const data = JSON.stringify(store.history[0])
-
-  const container = document.createElement("div")
-  container.innerHTML = html
-
-  document.body.appendChild(container)
-}
-
-getData()
+</style>
