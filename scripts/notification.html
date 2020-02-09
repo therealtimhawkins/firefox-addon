@@ -10,7 +10,9 @@
   <body>
     <div class="gp-container">
       <div class="gp-logo">G.</div>
+      <br />
       <div>Footprint found!</div>
+      <br />
       <div class="gp-row">
         <div class="gp-col-3">£4.90</div>
         <div class="gp-col-3">37 miles</div>
@@ -23,22 +25,28 @@
           data-show-count="false"
           target="_blank"
         >
-          <i class="fa fa-twitter"></i>
+          <div class="gp-social-icon">
+            <i class="fa fa-twitter"></i>
+          </div>
         </div>
-        <div
+        <a
           class="gp-social-button gp-facebook"
           href="https://www.facebook.com/sharer/sharer.php?u=example.org"
           target="_blank"
         >
-          <i class="fa fa-facebook"></i>
-        </div>
+          <div class="gp-social-icon">
+            <i class="fa fa-facebook"></i>
+          </div>
+        </a>
       </div>
     </div>
 
     <style>
       @import url("https://fonts.googleapis.com/css?family=Playfair+Display:900:italic&display=swap");
+      @import url("https://fonts.googleapis.com/css?family=Arvo&display=swap");
 
       .gp-container {
+        font-family: "Arvo", serif;
         width: 300px;
         height: 200px;
         position: absolute;
@@ -55,13 +63,25 @@
       .gp-social-button {
         width: 32px;
         height: 32px;
-        background-color: aquamarine;
+        color: black;
+        border: 1px solid black;
+        border-radius: 4px;
+        padding: 0 0 0 0;
+      }
+
+      .gp-social-button:hover {
+        background-color: black;
+        color: white;
       }
 
       .gp-twitter {
         position: absolute;
         right: 64px;
         bottom: 16px;
+      }
+
+      .gp-social-icon {
+        margin: 7px 0px 0 8px;
       }
 
       .gp-facebook {

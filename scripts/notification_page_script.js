@@ -7,21 +7,21 @@ const html = `<div class="gp-container">
         <div class="gp-col-3">1.2 trees</div>
       </div>
       <div>
-        <div
+        <a
           href="https://twitter.com/intent/tweet?button_hashtag=button&ref_src=twsrc%5Etfw"
           class="gp-social-button gp-twitter"
           data-show-count="false"
           target="_blank"
         >
           <i class="fa fa-twitter"></i>
-        </div>
-        <div
+        </a>
+        <a
           class="gp-social-button gp-facebook"
           href="https://www.facebook.com/sharer/sharer.php?u=example.org"
           target="_blank"
         >
           <i class="fa fa-facebook"></i>
-        </div>
+        </a>
       </div>
     </div>
 
