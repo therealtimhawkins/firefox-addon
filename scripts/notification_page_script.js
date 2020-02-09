@@ -1,7 +1,7 @@
-const html = `<div class="gp-container">
+const html = `<div class="gp-container" id="gp-container">
       <div class="gp-logo">G.</div>
       <div class="gp-message">Footprint found!</div>
-      <a class="gp-close-button" href="">
+      <a class="gp-close-button" id="gp-close-button">
         <i class="fa fa-times"></i>
       </a>
       <div class="gp-row">
@@ -139,12 +139,15 @@ const getData = async () => {
   document.head.appendChild(faLink)
 
   const store = await browser.storage.local.get()
-  const data = JSON.stringify(store.history[0])
 
   const container = document.createElement("div")
   container.innerHTML = html
 
   document.body.appendChild(container)
+
+  document.getElementById("gp-close-button").onclick = () => {
+    document.getElementById("gp-container").outerHTML = ""
+  }
 }
 
 getData()
