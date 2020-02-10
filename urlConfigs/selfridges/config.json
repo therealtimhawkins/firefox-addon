@@ -1,4 +1,9 @@
 {
+  "contact": {
+    "email": "customerservices@selfridges.com",
+    "twitter": "Selfridges",
+    "facebook": ""
+  },
   "bag": "row-item",
   "name": "heading--sub",
   "description": "text",

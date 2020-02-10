@@ -1044,10 +1044,10 @@ module.exports = JSON.parse("{\"bag\":\"o-cart-item\",\"name\":\"product-name ng
 /*!*******************************************!*\
   !*** ./urlConfigs/selfridges/config.json ***!
   \*******************************************/
-/*! exports provided: bag, name, description, price, size, default */
+/*! exports provided: contact, bag, name, description, price, size, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"bag\":\"row-item\",\"name\":\"heading--sub\",\"description\":\"text\",\"price\":\"heading--sub mb-0\",\"size\":\"text mb-0\"}");
+module.exports = JSON.parse("{\"contact\":{\"email\":\"customerservices@selfridges.com\",\"twitter\":\"Selfridges\",\"facebook\":\"\"},\"bag\":\"row-item\",\"name\":\"heading--sub\",\"description\":\"text\",\"price\":\"heading--sub mb-0\",\"size\":\"text mb-0\"}");
 
 /***/ }),
 
