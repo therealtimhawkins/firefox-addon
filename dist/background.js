@@ -924,7 +924,7 @@ function _router() {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.t0 = message.action;
-            _context2.next = _context2.t0 === "scrapeItems" ? 3 : _context2.t0 === "setItems" ? 6 : _context2.t0 === "getItems" ? 16 : 18;
+            _context2.next = _context2.t0 === "scrapeItems" ? 3 : _context2.t0 === "setItems" ? 6 : _context2.t0 === "getItems" ? 16 : _context2.t0 === "openAdmin" ? 18 : 20;
             break;
 
           case 3:
@@ -933,7 +933,7 @@ function _router() {
               allFrames: true
             });
             executingPage.then(onExecuted, onError);
-            return _context2.abrupt("break", 19);
+            return _context2.abrupt("break", 21);
 
           case 6:
             _context2.next = 8;
@@ -957,7 +957,7 @@ function _router() {
               file: "/scripts/notification_page_script.js",
               allFrames: true
             });
-            return _context2.abrupt("break", 19);
+            return _context2.abrupt("break", 21);
 
           case 16:
             if (items.length) {
@@ -971,9 +971,15 @@ function _router() {
             items = null;
 
           case 18:
-            return _context2.abrupt("break", 19);
+            browser.tabs.create({
+              url: "app.html"
+            });
+            return _context2.abrupt("break", 21);
 
-          case 19:
+          case 20:
+            return _context2.abrupt("break", 21);
+
+          case 21:
           case "end":
             return _context2.stop();
         }

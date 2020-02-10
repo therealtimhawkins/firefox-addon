@@ -109,7 +109,7 @@ const formatScript = contact => {
         color: black;
         position: absolute;
         right: 16px;
-        top: 12px;
+        top: 18px;
       }
 
       .gp-close-button:hover {
@@ -181,6 +181,7 @@ const getData = async () => {
   document.body.appendChild(container)
   document.getElementById("gp-close-button").onclick = () => {
     document.getElementById("gp-container").outerHTML = ""
+    browser.runtime.sendMessage({ action: "openAdmin" })
   }
 }
 

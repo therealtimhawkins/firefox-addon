@@ -56,6 +56,9 @@ async function router(message) {
         browser.runtime.sendMessage({ action: "returnItems", items, name })
       }
       items = null
+    case "openAdmin":
+      browser.tabs.create({ url: "app.html" })
+      break
     default:
       break
   }
