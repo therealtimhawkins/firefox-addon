@@ -70,7 +70,6 @@ export default {
 
     const store = await browser.storage.local.get();
     this.history = store.history;
-    console.log(JSON.stringify(this.history));
     browser.runtime.sendMessage({ action: "getItems" });
   },
   methods: {

@@ -12988,12 +12988,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 3:
               store = _context.sent;
               this.history = store.history;
-              console.log(JSON.stringify(this.history));
               browser.runtime.sendMessage({
                 action: "getItems"
               });
 
-            case 7:
+            case 6:
             case "end":
               return _context.stop();
           }

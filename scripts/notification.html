@@ -9,19 +9,19 @@
 
   <body>
     <div class="gp-container">
-      <div class="gp-logo">G.</div>
       <div class="gp-message">Footprint found!</div>
       <a class="gp-close-button" href="">
         <i class="fa fa-times"></i>
       </a>
+      <hr />
       <div class="gp-row">
-        <div class="gp-col-4">
+        <div class="gp-col-3">
           <div class="gp-info-box">
             <i class="fa fa-pound-sign"></i
             ><span class="gp-info-data">4.90</span>
           </div>
         </div>
-        <div class="gp-col-3">
+        <div class="gp-col-4">
           <div class="gp-info-box">
             <i class="fa fa-tree"></i><span class="gp-info-data">1.7</span>
           </div>
@@ -67,7 +67,7 @@
       .gp-container {
         font-family: "Nunito Sans", serif;
         width: 380px;
-        height: 250px;
+        height: 200px;
         position: absolute;
         right: 16px;
         top: 16px;
@@ -82,7 +82,6 @@
       .gp-message {
         font-family: "Nunito Sans", serif;
         font-weight: 900;
-        padding: 16px 0 20px 0;
         font-size: 26px;
       }
 
@@ -140,6 +139,7 @@
       }
 
       .gp-row {
+        padding-top: 20px;
         position: relative;
       }
 
@@ -152,11 +152,13 @@
       .gp-col-3 {
         width: 30%;
         float: left;
+        text-align: center;
       }
 
       .gp-col-4 {
         width: 40%;
         float: left;
+        text-align: center;
       }
     </style>
   </body>

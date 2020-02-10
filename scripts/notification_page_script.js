@@ -4,11 +4,11 @@ const formatScript = contact => {
     "My carbon footprint for these items was £4.07! 😲 Don&#39;t leave it up to me to stamp it out 🥾 @GreenPay"
 
   const html = `<div class="gp-container" id="gp-container">
-      <div class="gp-logo">G.</div>
       <div class="gp-message">Footprint found!</div>
       <a class="gp-close-button" id="gp-close-button">
         <i class="fa fa-times"></i>
       </a>
+      <hr class="gp-hr"/>
       <div class="gp-row">
         <div class="gp-col-4">
           <div class="gp-info-box">
@@ -54,7 +54,7 @@ const formatScript = contact => {
       </div>
     </div>
 
-    <style>
+        <style>
       @import url("https://fonts.googleapis.com/css?family=Playfair+Display:900:italic&display=swap");
       @import url("https://fonts.googleapis.com/css?family=Arvo&display=swap");
       @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:900&display=swap");
@@ -62,7 +62,7 @@ const formatScript = contact => {
       .gp-container {
         font-family: "Nunito Sans", serif;
         width: 380px;
-        height: 250px;
+        height: 200px;
         position: absolute;
         right: 16px;
         top: 16px;
@@ -77,8 +77,14 @@ const formatScript = contact => {
       .gp-message {
         font-family: "Nunito Sans", serif;
         font-weight: 900;
-        padding: 16px 0 20px 0;
         font-size: 26px;
+        padding: 0 0 10px 0;
+      }
+      
+      .gp-hr {
+        margin: 0 0 0 0;
+        border: 1px solid black;
+
       }
 
       .gp-info-box {
@@ -99,7 +105,7 @@ const formatScript = contact => {
       }
 
       .gp-close-button {
-        font-size: 16px;
+        font-size: 24px;
         color: black;
         position: absolute;
         right: 16px;
@@ -110,15 +116,15 @@ const formatScript = contact => {
         color: gray;
       }
 
-      .gp-twitter {
-        position: absolute;
-        right: 64px;
-        bottom: 12px;
-      }
-
       .gp-mail {
         position: absolute;
         right: 112px;
+        bottom: 12px;
+      }
+
+      .gp-twitter {
+        position: absolute;
+        right: 64px;
         bottom: 12px;
       }
 
@@ -136,6 +142,7 @@ const formatScript = contact => {
 
       .gp-row {
         position: relative;
+        padding-top: 20px;
       }
 
       .gp-row::after {
@@ -147,11 +154,13 @@ const formatScript = contact => {
       .gp-col-3 {
         width: 30%;
         float: left;
+        text-align: center;
       }
 
       .gp-col-4 {
         width: 40%;
         float: left;
+        text-align: center;
       }
     </style>`
 
@@ -159,7 +168,7 @@ const formatScript = contact => {
 }
 
 const getData = async () => {
-  var faLink = document.createElement("script")
+  const faLink = document.createElement("script")
   faLink.setAttribute("src", "https://kit.fontawesome.com/7868dd5cb6.js")
   document.head.appendChild(faLink)
 
@@ -170,7 +179,6 @@ const getData = async () => {
   container.innerHTML = formatScript(contact)
 
   document.body.appendChild(container)
-
   document.getElementById("gp-close-button").onclick = () => {
     document.getElementById("gp-container").outerHTML = ""
   }
