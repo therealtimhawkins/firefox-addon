@@ -6,6 +6,8 @@ function connected(page_script) {
     const url = urlParser(tabs[0].url)
     name = url
     const data = await require("../urlConfigs/" + url + "/config.json")
+    browser.storage.local.set({ contact: data.contact })
+
     if (data) {
       page_script.postMessage({
         data

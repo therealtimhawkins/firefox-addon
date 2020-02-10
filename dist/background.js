@@ -877,6 +877,9 @@ function connected(page_script) {
 
             case 4:
               data = _context.sent;
+              browser.storage.local.set({
+                contact: data.contact
+              });
 
               if (data) {
                 page_script.postMessage({
@@ -884,7 +887,7 @@ function connected(page_script) {
                 });
               }
 
-            case 6:
+            case 7:
             case "end":
               return _context.stop();
           }

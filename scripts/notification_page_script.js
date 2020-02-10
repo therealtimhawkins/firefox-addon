@@ -1,10 +1,9 @@
-let tweet =
-  "@Selfridges - My carbon footprint for these items was £4.07! 😲 Don&#39;t leave it up to me to stamp it out 🥾 @GreenPay"
+const formatScript = contact => {
+  let tweet = `@${contact.twitter} - My carbon footprint for these items was £4.07! 😲 Don&#39;t leave it up to me to stamp it out 🥾 @GreenPay`
+  let email =
+    "My carbon footprint for these items was £4.07! 😲 Don&#39;t leave it up to me to stamp it out 🥾 @GreenPay"
 
-let email =
-  "@Selfridges - My carbon footprint for these items was £4.07! 😲 Don&#39;t leave it up to me to stamp it out 🥾 @GreenPay"
-
-const html = `<div class="gp-container" id="gp-container">
+  const html = `<div class="gp-container" id="gp-container">
       <div class="gp-logo">G.</div>
       <div class="gp-message">Footprint found!</div>
       <a class="gp-close-button" id="gp-close-button">
@@ -30,7 +29,7 @@ const html = `<div class="gp-container" id="gp-container">
       </div>
       <div>
         <a
-          href="mailto:selfridges@example.com?subject=Your Carbon Footprint&body=${tweet}"
+          href="mailto:${contact.email}?subject=Your Carbon Footprint&body=${email}"
           class="gp-social-button gp-mail"
           data-show-count="false"
           target="_blank"
@@ -38,7 +37,7 @@ const html = `<div class="gp-container" id="gp-container">
           <i class="fas fa-envelope-square"></i>
         </a>
         <a
-          href="https://twitter.com/intent/tweet?button_hashtag=ClimateCrisis&ref_src=twsrc%5Etfw&text=${email}"
+          href="https://twitter.com/intent/tweet?button_hashtag=ClimateCrisis&ref_src=twsrc%5Etfw&text=${tweet}"
           class="gp-social-button gp-twitter"
           data-show-count="false"
           target="_blank"
@@ -156,15 +155,19 @@ const html = `<div class="gp-container" id="gp-container">
       }
     </style>`
 
+  return html
+}
+
 const getData = async () => {
   var faLink = document.createElement("script")
   faLink.setAttribute("src", "https://kit.fontawesome.com/7868dd5cb6.js")
   document.head.appendChild(faLink)
 
   const store = await browser.storage.local.get()
+  contact = store.contact
 
   const container = document.createElement("div")
-  container.innerHTML = html
+  container.innerHTML = formatScript(contact)
 
   document.body.appendChild(container)
 
