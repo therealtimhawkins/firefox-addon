@@ -22,7 +22,7 @@
     "bulma": "^0.8.0",
     "laravel-mix": "^5.0.1",
     "lodash.get": "^4.4.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "raw-loader": "^4.0.0",
     "v-show-slide": "^1.8.3",
     "vue": "^2.6.11"
